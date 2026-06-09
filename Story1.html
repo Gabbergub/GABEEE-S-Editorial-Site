@@ -35,14 +35,14 @@
     .center-wrapper {
         min-height: calc(100vh - 60px);
         display: flex;
-        justify-content: center;
+        justify-content:center;
         align-items: center;
-        flex-direction: column;
+        flex-direction:column;
     }
 
     .center-text {
         font-family: 'ExposureTrial[+70]';
-        font-size: 24px;
+        font-size: 18px;
     }
 
     nav {
@@ -79,7 +79,30 @@
         color: #007BFF;
     }
 
-    .dashed-grid-paper {
+    .title-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 32px auto 12px;
+        padding-top: 150px;
+        box-sizing: border-box;
+    }
+
+    .title-info [list-title],
+    .title-info [list-date] {
+        flex: none;
+        text-align: center;
+        margin: 0;
+    }
+
+    .title-info [list-date] {
+        margin-top: 6px;
+    }
+
+    /* .dashed-grid-paper {
 
         --grid-size: 30px;
         --grid-strength: 1px;
@@ -96,7 +119,7 @@
             linear-gradient(to right, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
             linear-gradient(to bottom, var(--grid-color) var(--grid-strength), transparent var(--grid-strength));
         background-attachment: fixed;
-    }
+    }*/
 
     .list-wrapper {
         /* border-bottom: #333 1.5px solid;*/
@@ -234,7 +257,8 @@
         font-weight: normal;
         font-style: normal;
     }
-     @font-face {
+
+    @font-face {
         font-family: 'ExposureItalicTrial[+30]';
         /* The name you'll use in your CSS */
         src: url('205TF_Exposure/ExposureItalicTrial[+30].otf') format('opentype'), ;
@@ -468,7 +492,7 @@ font-style: italic;
     .contact-list a {
         text-decoration: none;
         color: #111;
-        
+
     }
 
     .contact-list a:hover {
@@ -498,20 +522,36 @@ font-style: italic;
         </ul>
     </nav>
 
-    <div class="center-wrapper">
-        <p class="center-text" style="text-align: center; max-width: 600px;">
-            <!--- Scribbled Word is a blog dedicated to exploring technology, design, culture, and religion through
-            written articles. Aimed to provide insightful and thought-provoking content.-->
-            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat.-->
-           <!--- An editorial journey through voice, creativity, and thought, expressed through the written word—one scribble
-            at a time.-->
-        </p>
-        <img src="images/GM_drawing.png" alt="Scribbled Word Logo" style="margin-top: 20px; width: 350px; height: auto;">
+    <div class="title-info">
+    <p list-title> My Rubber Duckie</p>
+    <p list-date>June 09, 2026</p>
     </div>
 
-    <div class="marquee-wrapper">
+    <div class="center-wrapper">
+        <p class="center-text" style="text-align: left; max-width: 600px;">
+            Floating above the water is a simple little object, native to the bathtub, that brings us temporary joy. The
+            rubber duckie comes in many shapes, sizes, and colors, but mine was a plain old yellow one.
+            <br><br>
+            I had a rubber duckie once. While it may not have looked as exciting as some of the others, it brought me to
+            an imaginative world almost too real to escape. It became an unlikely hero that would save me from a long
+            day of elementary math and other unwanted assignments.
+            <br><br>
+            Unexpectedly, my rubber duckie disappeared, almost as if it had left on a journey. As a child, you begin to
+            imagine the most outrageous stories about the reason why. It's on a spy mission to save the world. It's
+            being held captive by killer robots. Or it lost its air and sank to the depths of the ocean.
+            <br><br>
+            Years later, as an adult, I would see a rubber duckie in a store or in the hands of a child, some resembling
+            the one from my childhood. I have also come across community boxes filled with rubber duckies that people
+            add to or exchange. Seeing these collections made me wonder whether others were holding on to the same
+            childhood joy. It's almost as if adults are trying to keep that joy alive and pass it on to others.
+            <br><br>
+            It begs the question: When do rubber duckies fade away from a person's life?
+        </p>
+    </div>
+    <br><br>
+    <br><br>
+
+    <!---  <div class="marquee-wrapper">
         <p>Scroll down to see work
             &emsp; &emsp; &emsp; &emsp;
             Scroll down to see work
@@ -522,114 +562,8 @@ font-style: italic;
         </p>
 
     </div>
+    <div class="linebar"></div>-->
 
-    <button class="collapsible">
-        <div class="list-wrapper">
-            <p list-title><a href="Story1.html"> My Rubber Duckie</a></p>
-            <p list-date>June 09, 2026</p>
-        </div>
-    </button>
-    <div class="content">
-        <p>
-            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat.-->
-            A short story about my childhood rubber duckie, and its sudden disappearance entering adulthood. 
-        </p>
-        <p><a href="Story1.html">Read more</a></p>
-    </div>
-    <div class="linebar"></div>
-
-    <button class="collapsible">
-        <div class="list-wrapper">
-            <p list-title><a href="Story2.html"> Ah! Rats!</a></p>
-            <p list-date>June 08, 2026</p>
-        </div>
-    </button>
-    <div class="content">
-        <p>
-            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat.-->
-            An essay about New York City's most common neighbor: the rat, and how the city has developed a complex relationship with this resilient creature.
-        </p>
-        <p><a href="Story2.html">Read more</a></p>
-    </div>
-    <div class="linebar"></div>
-
-     <button class="collapsible">
-        <div class="list-wrapper">
-            <p list-title><a href="Story3.html"> Yellow Letter — Not Returned to Sender</a></p>
-            <p list-date>June 03, 2026</p>
-        </div>
-    </button>
-    <div class="content">
-        <p>
-            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat.-->
-            An essay about a yellow letter, an object of personal significance.
-        </p>
-        <p><a href="Story3.html">Read more</a></p>
-    </div>
-    <div class="linebar"></div>
-
-    <button class="collapsible">
-        <div class="list-wrapper">
-            <p list-title>Julio Torres — Chosen by the Cosmos</p>
-            <p list-date>TBC</p>
-        </div>
-    </button>
-    <div class="content">
-        <p>
-            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat.-->
-            The origins of his creative voice and what can feel at times, like an almost cosmic or divine calling toward
-            the absurd.
-        </p>
-        <p><a href="#">Read more</a></p>
-    </div>
-    <div class="linebar"></div>
-
-
-
-    <div class="about-wrapper" id="about-wrapper">
-        <p about> About</p>
-        <p about-text>
-            <!--Scribble Word is a blog dedicated to exploring technology, design, culture, and religion through
-            written articles. Aimed to provide insightful and thought-provoking content.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.--->
-
-            Gabe Marroquin is a multidisciplinary designer and self-taught visual artist based in Brooklyn, New York,
-            where he is currently pursuing an MFA in Design and Technology at Parsons School of Design.
-            <br><br>
-            He specializes in visual identity,
-            digital design, creative coding, and experimental artistic practices. He has worked with clients including
-            the Daily Mail, Jackfir, and SolidSky.
-
-
-
-        </p>
-    </div>
-    <div class="linebar"></div>
-    <div class="about-wrapper" id="contact-wrapper">
-        <p about> Contact</p>
-
-        <ul class="contact-list" about-text>
-            <p>
-            <li><a href="mailto:Gabemarroquin.art@gmail.com">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/gabe-marroquin-44049baa/">LinkedIn</a></li>
-            <li><a href="https://www.instagram.com/the.gabe.marroquin/">Instagram</a></li>
-            <li><a href="https://www.are.na/gabe-marroquin/channels">Are.na</a></li>
-            </p>
-        </ul>
-
-    </div>
 
     <footer>
         <p class="footer-text">© 2026 Gabe Marroquin</p>
