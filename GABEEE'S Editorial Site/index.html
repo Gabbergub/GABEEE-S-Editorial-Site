@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scribbled Word</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.typekit.net/kxz4hwz.css">
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    p {
+        font-family: 'Georgia', serif;
+        font-family: 'ExposureItalicTrial[-70]', serif;
+        font-family: "inter-18pt", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 24px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .center-wrapper {
+        min-height: calc(100vh - 60px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .center-text {
+        font-family: 'ExposureTrial[+70]';
+        font-size: 24px;
+    }
+
+    nav {
+        width: 100%;
+        background: transparent;
+        /*box-shadow: 0 2px 4px rgba(0,0,0,0.03);*/
+        padding: 10px 0;
+        position: sticky;
+        top: 70px;
+        z-index: 10;
+        font-family: 'ExposureTrial[-90]';
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        color: #007BFF;
+    }
+
+    .dashed-grid-paper {
+
+        --grid-size: 30px;
+        --grid-strength: 1px;
+        --grid-dash: 10px;
+        --grid-gap: 5px;
+        --grid-color: #ddd;
+        --paper-color: #fff;
+
+        background-color: var(--paper-color);
+        background-size: var(--grid-dash) var(--grid-dash), var(--grid-size) var(--grid-size);
+        background-image:
+            linear-gradient(to bottom, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+            linear-gradient(to right, var(--grid-color) var(--grid-strength), transparent var(--grid-strength)),
+            linear-gradient(to right, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+            linear-gradient(to bottom, var(--grid-color) var(--grid-strength), transparent var(--grid-strength));
+        background-attachment: fixed;
+    }
+
+    .list-wrapper {
+        /* border-bottom: #333 1.5px solid;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        /*margin: 40px;
+        padding: 0 16px;*/
+        padding: 0 40px;
+    }
+
+    [list-title] {
+        font-family: 'ExposureItalicTrial[-70]', serif;
+        /*font-size: 24px;*/
+        font-size: 27px;
+        flex: 1;
+        text-align: left;
+
+
+    }
+
+
+    [list-date] {
+        font-family: 'ExposureTrial[-70]', serif;
+        font-family: 'ExposureItalicTrial[-70]', serif;
+        /*font-size: 18px;*/
+        font-size: 15px;
+
+        flex: 1;
+        text-align: left;
+        color: #111;
+
+    }
+
+    .marquee-wrapper {
+        margin-top: 20px;
+        /*box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+            border: 1px solid rgba(0, 0, 0, .15);
+            background-color: #ffffff;*/
+        height: 50px;
+        overflow: hidden;
+        position: relative;
+        border-top: #333 1.5px solid;
+        border-bottom: #333 1.5px solid;
+        /*background-color: #333;*/
+        /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
+        /* Adding a subtle shadow */
+    }
+
+    .marquee-wrapper p {
+        font-family: 'ExposureItalicTrial[-70]', serif;
+        /* font-family: 'ExposureItalicTrial[+30]', serif; */
+        font-size: 24px;
+        font-size: 15px;
+        color: #fff;
+        color: #007BFF;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        line-height: 50px;
+        text-align: center;
+        transform: translateX(50%);
+        animation: bouncing-text 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes bouncing-text {
+        0% {
+            transform: translateX(50%);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+
+    @font-face {
+        font-family: 'ExposureItalicTrial[-50]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[-50].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureItalicTrial[-70]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[-70].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureItalicTrial[-90]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[-90].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureItalicTrial[-100]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[-100].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[-70]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[-70].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[-90]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[-90].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[+30]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[+30].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+      @font-face {
+        font-family: 'ExposureItalicTrial[+30]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[+30].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[+70]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[+70].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureItalicTrial[+30]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[+30].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[+90]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[+90].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[0]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[0].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /*
+Inter 18pt Regular 
+font-family: "inter-18pt", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Inter 18pt Italic
+font-family: "inter-18pt", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+Inter 18pt Bold
+font-family: "inter-18pt", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Inter 18pt Bold Italic
+font-family: "inter-18pt", sans-serif;
+font-weight: 700;
+font-style: italic;
+
+Inter 24pt Regular
+font-family: "inter-24pt", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Inter 24pt Italic
+font-family: "inter-24pt", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+Inter 24pt Bold
+font-family: "inter-24pt", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Inter 24pt Bold Italic
+font-family: "inter-24pt", sans-serif;
+font-weight: 700;
+font-style: italic;
+
+Inter 28pt Regular
+font-family: "inter-28pt", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Inter 28pt Italic
+font-family: "inter-28pt", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+Inter 28pt Bold
+font-family: "inter-28pt", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Inter 28pt Bold Italic
+font-family: "inter-28pt", sans-serif;
+font-weight: 700;
+font-style: italic;
+*/
+
+    /*.collapsible {
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }*/
+    .collapsible {
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        padding: 0;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .collapsible .list-wrapper {
+        flex: 1;
+    }
+
+    .active,
+    .collapsible:hover {
+        background-color: transparent;
+
+    }
+
+    /* .collapsible:after {
+        content: '\002B';
+        color: #111;
+        float: right;
+        margin-left: 5px;
+    }*/
+
+    .collapsible:after {
+        content: '\002B';
+        color: #111;
+        margin-right: 50px;
+        margin-left: 5px;
+        flex-shrink: 0;
+        font-size: 24px;
+
+    }
+
+    .active:after {
+        content: "\2212";
+
+    }
+
+    .content {
+        text-align: left;
+        width: 40%;
+        margin: 0 47%;
+        padding: 10px;
+        /*padding: 0 18px;*/
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: transparent;
+        padding-bottom: 20px;
+
+    }
+
+    .linebar {
+        width: 100%;
+        height: 1.5px;
+        background-color: #333;
+        margin: -10px 0;
+        /*border-bottom: #333 1.5px solid;*/
+    }
+
+    p a {
+        color: #007BFF;
+        color: #111;
+        text-decoration: none;
+        font-family: 'ExposureItalicTrial[-70]';
+    }
+
+
+    #drawing-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 999;
+    }
+
+    .about-wrapper {
+        /* border-bottom: #333 1.5px solid;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        /*align-items: center;*/
+        margin-top: 10px;
+        /*margin: 40px;
+        padding: 0 16px;*/
+        padding: 0 40px;
+    }
+
+    [about] {
+        font-family: 'ExposureItalicTrial[-70]', serif;
+        /*font-size: 24px;*/
+        font-size: 27px;
+        flex: 1;
+        text-align: left;
+
+    }
+
+
+    [about-text] {
+        font-family: 'ExposureTrial[+30]', serif;
+
+        /*font-size: 18px;*/
+        font-size: 27px;
+        margin-right: 5%;
+        flex: 1;
+        text-align: left;
+        color: #111;
+
+    }
+
+    .contact-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-right: 5%;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+        flex: 1;
+        text-align: left;
+    }
+
+    .contact-list a {
+        text-decoration: none;
+        color: #111;
+
+    }
+
+    .contact-list a:hover {
+        color: #007BFF;
+        transition: color 0.3s ease;
+        font-family: 'ExposureItalicTrial[+30]';
+    }
+
+    .footer-text {
+        border-top: 1.5px solid #333;
+        font-family: 'ExposureTrial[-90]', serif;
+        font-family: 'ExposureTrial[+70]';
+        font-size: 15px;
+        text-align: center;
+        color: #111;
+        padding: 20px 0;
+    }
+</style>
+
+<body class="dashed-grid-paper">
+    <canvas id="drawing-canvas"></canvas>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about-wrapper">About</a></li>
+            <li><a href="#contact-wrapper">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="center-wrapper">
+        <p class="center-text" style="text-align: center; max-width: 600px;">
+            <!--- Scribbled Word is a blog dedicated to exploring technology, design, culture, and religion through
+            written articles. Aimed to provide insightful and thought-provoking content.-->
+            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat.-->
+            <!--- An editorial journey through voice, creativity, and thought, expressed through the written word—one scribble
+            at a time.-->
+        </p>
+        <img src="images/GM_drawing.png" alt="Scribbled Word Logo"
+            style="margin-top: 20px; width: 350px; height: auto;">
+    </div>
+
+    <div class="marquee-wrapper">
+        <p>Scroll down to see work
+            &emsp; &emsp; &emsp; &emsp;
+            Scroll down to see work
+            &emsp; &emsp; &emsp; &emsp;
+            Scroll down to see work
+            &emsp; &emsp; &emsp; &emsp;
+            Scroll down to see work
+        </p>
+
+    </div>
+
+     <button class="collapsible">
+        <div class="list-wrapper">
+            <p list-title>Margot Demarco 
+            <br>Master of the Art of Silliness & Scrappiness</p>
+            <p list-date>June 10, 2026</p>
+        </div>
+    </button>
+    <div class="content">
+        <p>
+            Seattle artist, Margot Demarco, is a master of the art of silliness and scrappiness. Her work is a
+            delightful blend of humor, creativity, and a touch of irreverence. With a keen eye for the absurd and a
+            knack for finding beauty in the unconventional, Demarco's art invites viewers to embrace their playful side
+            and find joy in the unexpected.
+        </p>
+        <p><a href="Story4.html">Read more</a></p>
+    </div>
+
+    <div class="linebar"></div>
+
+    <button class="collapsible">
+        <div class="list-wrapper">
+            <p list-title><a href="Story1.html"> My Rubber Duckie</a></p>
+            <p list-date>June 09, 2026</p>
+        </div>
+    </button>
+    <div class="content">
+        <p>
+            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat.-->
+            A short story about my childhood rubber duckie, and its sudden disappearance entering adulthood.
+        </p>
+        <p><a href="Story1.html">Read more</a></p>
+    </div>
+    <div class="linebar"></div>
+
+    <button class="collapsible">
+        <div class="list-wrapper">
+            <p list-title><a href="Story2.html"> Ah! Rats!</a></p>
+            <p list-date>June 08, 2026</p>
+        </div>
+    </button>
+    <div class="content">
+        <p>
+            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat.-->
+            An essay about New York City's most common neighbor: the rat, and how the city has developed a complex
+            relationship with this resilient creature.
+        </p>
+        <p><a href="Story2.html">Read more</a></p>
+    </div>
+    <div class="linebar"></div>
+
+    <button class="collapsible">
+        <div class="list-wrapper">
+            <p list-title><a href="Story3.html"> Yellow Letter — Not Returned to Sender</a></p>
+            <p list-date>June 03, 2026</p>
+        </div>
+    </button>
+    <div class="content">
+        <p>
+            <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat.-->
+            An essay about a yellow letter, an object of personal significance.
+        </p>
+        <p><a href="Story3.html">Read more</a></p>
+    </div>
+    <div class="linebar"></div>
+
+    <!---  <button class="collapsible">
+        <div class="list-wrapper">
+            <p list-title>Julio Torres — Chosen by the Cosmos</p>
+            <p list-date>TBC</p>
+        </div>
+  </button>
+    <div class="content">
+        <p>
+            The origins of his creative voice and what can feel at times, like an almost cosmic or divine calling toward
+            the absurd.
+        </p>
+        <p><a href="#">Read more</a></p>
+    </div>-->
+
+
+
+    <div class="about-wrapper" id="about-wrapper">
+        <p about> About</p>
+        <p about-text>
+            <!--Scribble Word is a blog dedicated to exploring technology, design, culture, and religion through
+            written articles. Aimed to provide insightful and thought-provoking content.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.--->
+
+            Gabe Marroquin is a multidisciplinary designer and self-taught visual artist based in Brooklyn, New York,
+            where he is currently pursuing an MFA in Design and Technology at Parsons School of Design.
+            <br><br>
+            He specializes in visual identity,
+            digital design, creative coding, and experimental artistic practices. He has worked with clients including
+            the Daily Mail, Jackfir, and SolidSky.
+
+
+
+        </p>
+    </div>
+    <div class="linebar"></div>
+    <div class="about-wrapper" id="contact-wrapper">
+        <p about> Contact</p>
+
+        <ul class="contact-list" about-text>
+            <p>
+                <li><a href="mailto:Gabemarroquin.art@gmail.com">Email</a></li>
+                <li><a href="https://www.linkedin.com/in/gabe-marroquin-44049baa/">LinkedIn</a></li>
+                <li><a href="https://www.instagram.com/the.gabe.marroquin/">Instagram</a></li>
+                <li><a href="https://www.are.na/gabe-marroquin/channels">Are.na</a></li>
+            </p>
+        </ul>
+
+    </div>
+
+    <footer>
+        <p class="footer-text">© 2026 Gabe Marroquin</p>
+    </footer>
+
+
+    <!---- <div class="list-wrapper">
+        <p list-title> Article or Story Title</p>
+        <p list-date> List Date</p>
+    </div>
+    <div class="list-wrapper">
+        <p list-title> Article or Story Title</p>
+        <p list-date> List Date</p>
+    </div>
+    <div class="list-wrapper">
+        <p list-title> Article or Story Title</p>
+        <p list-date> List Date</p>
+    </div>
+    --->
+
+
+    <script>
+        // Enable smooth scrolling for anchor links
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+<script src="life.js" async defer></script>
+
+</html>

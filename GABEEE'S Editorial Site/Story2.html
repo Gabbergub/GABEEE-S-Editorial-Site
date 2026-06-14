@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scribbled Word</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.typekit.net/kxz4hwz.css">
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    p {
+        font-family: 'Georgia', serif;
+        font-family: 'ExposureItalicTrial[-70]', serif;
+        font-family: "inter-18pt", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 24px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .center-wrapper {
+        min-height: calc(100vh - 60px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .center-text {
+        font-family: 'ExposureTrial[+70]';
+        font-family: 'ExposureTrial[+30]', serif;
+        font-size: 18px;
+    }
+
+    nav {
+        width: 100%;
+        background: transparent;
+        /*box-shadow: 0 2px 4px rgba(0,0,0,0.03);*/
+        padding: 10px 0;
+        position: sticky;
+        top: 70px;
+        z-index: 10;
+        font-family: 'ExposureTrial[-90]';
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        color: #007BFF;
+    }
+
+    .title-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 32px auto 12px;
+        padding-top: 150px;
+        box-sizing: border-box;
+    }
+
+    .title-info [list-title],
+    .title-info [list-date] {
+        flex: none;
+        text-align: center;
+        margin: 0;
+    }
+
+    .title-info [list-date] {
+        margin-top: 6px;
+    }
+
+   /* .dashed-grid-paper {
+
+        --grid-size: 30px;
+        --grid-strength: 1px;
+        --grid-dash: 10px;
+        --grid-gap: 5px;
+        --grid-color: #ddd;
+        --paper-color: #fff;
+
+        background-color: var(--paper-color);
+        background-size: var(--grid-dash) var(--grid-dash), var(--grid-size) var(--grid-size);
+        background-image:
+            linear-gradient(to bottom, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+            linear-gradient(to right, var(--grid-color) var(--grid-strength), transparent var(--grid-strength)),
+            linear-gradient(to right, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+            linear-gradient(to bottom, var(--grid-color) var(--grid-strength), transparent var(--grid-strength));
+        background-attachment: fixed;
+    }*/
+
+    .list-wrapper {
+        /* border-bottom: #333 1.5px solid;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        /*margin: 40px;
+        padding: 0 16px;*/
+        padding: 0 40px;
+    }
+
+    [list-title] {
+        font-family: 'ExposureItalicTrial[-70]', serif;
+        /*font-size: 24px;*/
+        font-size: 27px;
+        flex: 1;
+        text-align: left;
+
+
+    }
+
+
+    [list-date] {
+        font-family: 'ExposureTrial[-70]', serif;
+        font-family: 'ExposureItalicTrial[-70]', serif;
+        /*font-size: 18px;*/
+        font-size: 15px;
+
+        flex: 1;
+        text-align: left;
+        color: #111;
+
+    }
+
+    .marquee-wrapper {
+        margin-top: 20px;
+        /*box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+            border: 1px solid rgba(0, 0, 0, .15);
+            background-color: #ffffff;*/
+        height: 50px;
+        overflow: hidden;
+        position: relative;
+        border-top: #333 1.5px solid;
+        border-bottom: #333 1.5px solid;
+        /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
+        /* Adding a subtle shadow */
+    }
+
+    .marquee-wrapper p {
+        font-family: 'ExposureItalicTrial[-70]', serif;
+        font-size: 24px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        line-height: 50px;
+        text-align: center;
+        transform: translateX(50%);
+        animation: bouncing-text 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes bouncing-text {
+        0% {
+            transform: translateX(50%);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+
+    @font-face {
+        font-family: 'ExposureItalicTrial[-50]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[-50].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureItalicTrial[-70]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[-70].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureItalicTrial[-90]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[-90].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureItalicTrial[-100]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[-100].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[-70]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[-70].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[-90]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[-90].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[+30]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[+30].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[+70]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[+70].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureItalicTrial[+30]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureItalicTrial[+30].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[+90]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[+90].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'ExposureTrial[0]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[0].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /*
+Inter 18pt Regular 
+font-family: "inter-18pt", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Inter 18pt Italic
+font-family: "inter-18pt", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+Inter 18pt Bold
+font-family: "inter-18pt", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Inter 18pt Bold Italic
+font-family: "inter-18pt", sans-serif;
+font-weight: 700;
+font-style: italic;
+
+Inter 24pt Regular
+font-family: "inter-24pt", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Inter 24pt Italic
+font-family: "inter-24pt", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+Inter 24pt Bold
+font-family: "inter-24pt", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Inter 24pt Bold Italic
+font-family: "inter-24pt", sans-serif;
+font-weight: 700;
+font-style: italic;
+
+Inter 28pt Regular
+font-family: "inter-28pt", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Inter 28pt Italic
+font-family: "inter-28pt", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+Inter 28pt Bold
+font-family: "inter-28pt", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Inter 28pt Bold Italic
+font-family: "inter-28pt", sans-serif;
+font-weight: 700;
+font-style: italic;
+*/
+
+    /*.collapsible {
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }*/
+    .collapsible {
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        padding: 0;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .collapsible .list-wrapper {
+        flex: 1;
+    }
+
+    .active,
+    .collapsible:hover {
+        background-color: transparent;
+
+    }
+
+    /* .collapsible:after {
+        content: '\002B';
+        color: #111;
+        float: right;
+        margin-left: 5px;
+    }*/
+
+    .collapsible:after {
+        content: '\002B';
+        color: #111;
+        margin-right: 50px;
+        margin-left: 5px;
+        flex-shrink: 0;
+        font-size: 24px;
+
+    }
+
+    .active:after {
+        content: "\2212";
+
+    }
+
+    .content {
+        text-align: left;
+        width: 40%;
+        margin: 0 47%;
+        padding: 10px;
+        /*padding: 0 18px;*/
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: transparent;
+        padding-bottom: 20px;
+
+    }
+
+    .linebar {
+        width: 100%;
+        height: 1.5px;
+        background-color: #333;
+        margin: -10px 0;
+        /*border-bottom: #333 1.5px solid;*/
+    }
+
+    p a {
+        color: #007BFF;
+        color: #111;
+        text-decoration: none;
+        font-family: 'ExposureItalicTrial[-70]';
+    }
+
+
+    #drawing-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 999;
+    }
+
+    .about-wrapper {
+        /* border-bottom: #333 1.5px solid;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        /*align-items: center;*/
+        margin-top: 10px;
+        /*margin: 40px;
+        padding: 0 16px;*/
+        padding: 0 40px;
+    }
+
+    [about] {
+        font-family: 'ExposureItalicTrial[-70]', serif;
+        /*font-size: 24px;*/
+        font-size: 27px;
+        flex: 1;
+        text-align: left;
+
+    }
+
+
+    [about-text] {
+        font-family: 'ExposureTrial[+30]', serif;
+
+        /*font-size: 18px;*/
+        font-size: 27px;
+        margin-right: 5%;
+        flex: 1;
+        text-align: left;
+        color: #111;
+
+    }
+
+    .contact-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-right: 5%;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+        flex: 1;
+        text-align: left;
+    }
+
+    .contact-list a {
+        text-decoration: none;
+        color: #111;
+
+    }
+
+    .contact-list a:hover {
+        color: #007BFF;
+        transition: color 0.3s ease;
+        font-family: 'ExposureItalicTrial[+30]';
+    }
+
+    .footer-text {
+        border-top: 1.5px solid #333;
+        font-family: 'ExposureTrial[-90]', serif;
+        font-family: 'ExposureTrial[+70]';
+        font-size: 15px;
+        text-align: center;
+        color: #111;
+        padding: 20px 0;
+    }
+</style>
+
+<body class="dashed-grid-paper">
+    <canvas id="drawing-canvas"></canvas>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about-wrapper">About</a></li>
+            <li><a href="#contact-wrapper">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="title-info">
+        <p list-title> Ah! Rats!</p>
+        <p list-date>June 08, 2026</p>
+    </div>
+
+    <div class="center-wrapper">
+        <p class="center-text" style="text-align: left; max-width: 600px;">
+            On a hot, sunny day in June, a trip to the New York Aquarium immersed me in the world of aquatic life.
+            Surrounded by marine creatures, I found myself wondering: “I am in their world, and they are in mine... but
+            whose world am I really in?” The answer scurried into focus almost immediately. Rats. Despite spending the
+            day surrounded by marine life, I could not stop thinking about the animal that seems to dominate New York
+            City's landscape.
+            <br><br>
+            Though I spent the day observing creatures of the sea, my thoughts continually drifted back to New York
+            City’s most persistent inhabitant. It is no secret that rats have become a common presence across all five
+            boroughs, with their population continuing to grow and reaching an estimated one million over the last
+            decade. The brown rat, also known as the Norway rat, first arrived in New York City during the mid-18th
+            century aboard European ships and cargo vessels. With its abundance of waste and dense urban infrastructure,
+            the city quickly became an ideal habitat for these resilient rodents.
+            <br><br>
+            As rats adapted to life in the city, New Yorkers adapted as well, developing a range of strategies to manage
+            the ever-growing population. Among the most common of these strategies is the use of rodent bait stations.
+            <br><br>
+            Walking through the streets of New York, I began to notice a seemingly ordinary yet ubiquitous object, the
+            black rodent bait station. Positioned discreetly along sidewalks and beside buildings, these boxes have
+            become a familiar part of the urban landscape. Designed to poison and control rat populations, bait stations
+            are strategically placed in areas where rodents are most likely to travel, serving as a quiet yet constant
+            effort to curb the city's enduring rat problem.
+            <br><br>
+            Yet despite the city's constant efforts to control them, rats have become an unlikely staple of New York
+            City's culture. While often viewed as pests, they have also taken on a surprisingly positive role in the
+            city's public imagination.
+            <br><br>
+            The rat has become New York City’s unofficial mascot. From Pizza Rat, the viral 2015 sensation struggling to
+            drag a giant slice of pizza down a subway staircase, to Scrabby, a symbol of labor activism during the 1996
+            sanitation workers' strike, rats have embedded themselves in the city's cultural identity as much as in its
+            physical landscape.
+            <br><br>
+            From the strategic control of rat populations to their integration into the city's culture, the question
+            remains. Will this continuous struggle between New Yorkers and rodents ever reach homeostasis?
+        </p>
+    </div>
+    <br><br>
+    <br><br>
+
+    <!---  <div class="marquee-wrapper">
+        <p>Scroll down to see work
+            &emsp; &emsp; &emsp; &emsp;
+            Scroll down to see work
+            &emsp; &emsp; &emsp; &emsp;
+            Scroll down to see work
+            &emsp; &emsp; &emsp; &emsp;
+            Scroll down to see work
+        </p>
+
+    </div>
+    <div class="linebar"></div>-->
+
+
+    <footer>
+        <p class="footer-text">© 2026 Gabe Marroquin</p>
+    </footer>
+
+
+    <!---- <div class="list-wrapper">
+        <p list-title> Article or Story Title</p>
+        <p list-date> List Date</p>
+    </div>
+    <div class="list-wrapper">
+        <p list-title> Article or Story Title</p>
+        <p list-date> List Date</p>
+    </div>
+    <div class="list-wrapper">
+        <p list-title> Article or Story Title</p>
+        <p list-date> List Date</p>
+    </div>
+    --->
+
+
+    <script>
+        // Enable smooth scrolling for anchor links
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+<script src="life.js" async defer></script>
+
+</html>
