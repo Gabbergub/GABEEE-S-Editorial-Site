@@ -21,6 +21,7 @@
         min-height: 100vh;
         position: relative;
         isolation: isolate;
+        overflow-x: hidden;
     }
 
     body::before {
@@ -562,7 +563,8 @@ font-style: italic;
         font-size: 36px;
         flex: 1;
         text-align: left;
-
+        /*text-decoration: underline #333 4px solid;
+        text-underline-offset: 10px;*/
     }
 
 
@@ -615,6 +617,135 @@ font-style: italic;
         color: #111;
         padding: 20px 0;
     }
+
+    /* ── Tablet & phone ── */
+    @media (max-width: 768px) {
+
+        .sticky-note {
+            width: 195px;
+            height: 195px;
+            font-size: 13px;
+            padding: 16px 18px;
+        }
+
+        .sticky-note:nth-child(1) {
+            top: calc(50% - 200px);
+            bottom: auto;
+            left: calc(50% - 197px);
+        }
+
+        .sticky-note:nth-child(2) {
+            top: calc(50% - 192px);
+            bottom: auto;
+            left: calc(50% + 2px);
+        }
+
+        .sticky-note:nth-child(3) {
+            top: calc(50% + 5px);
+            bottom: auto;
+            left: calc(50% - 197px);
+        }
+
+        .sticky-note:nth-child(4) {
+            top: calc(50% + 13px);
+            bottom: auto;
+            left: calc(50% + 2px);
+        }
+
+        .content {
+            width: calc(100% - 32px);
+            margin: 0 16px;
+            padding: 10px 0;
+        }
+
+        .list-wrapper {
+            padding: 0 16px;
+        }
+
+        .collapsible:after {
+            margin-right: 16px;
+        }
+
+        [list-title] {
+            font-size: 18px;
+        }
+
+        [list-date] {
+            font-size: 13px;
+            text-align: right;
+            flex: 0 0 auto;
+        }
+
+        .about-wrapper {
+            flex-direction: column;
+            padding: 0 16px;
+            gap: 8px;
+        }
+
+        #contact-wrapper {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        [about-text] {
+            margin-right: 0;
+            padding-bottom: 16px;
+        }
+
+        .contact-list {
+            margin-right: 0;
+        }
+
+        .linebar {
+            margin: -10px 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .sticky-note {
+            width: 145px;
+            height: 145px;
+            font-size: 11px;
+            padding: 12px 14px;
+        }
+
+        .sticky-note:nth-child(1) {
+            top: calc(50% - 150px);
+            bottom: auto;
+            left: calc(50% - 147px);
+        }
+
+        .sticky-note:nth-child(2) {
+            top: calc(50% - 143px);
+            bottom: auto;
+            left: calc(50% + 2px);
+        }
+
+        .sticky-note:nth-child(3) {
+            top: calc(50% + 5px);
+            bottom: auto;
+            left: calc(50% - 147px);
+        }
+
+        .sticky-note:nth-child(4) {
+            top: calc(50% + 12px);
+            bottom: auto;
+            left: calc(50% + 2px);
+        }
+
+        [list-title] {
+            font-size: 16px;
+        }
+
+    }
+
+    .link {
+        color: #111;
+        text-decoration: wavy underline #111 2px;
+        text-underline-offset: 5px;
+    }
+
 </style>
 
 <body class="dashed-grid-paper">
@@ -671,13 +802,13 @@ font-style: italic;
     </div>
 
     <div class="marquee-wrapper">
-        <p>Scroll down to see work
+        <p>Scroll down to read selected work
             &emsp; &emsp; &emsp; &emsp;
-            Scroll down to see work
+            Scroll down to read selected work
             &emsp; &emsp; &emsp; &emsp;
-            Scroll down to see work
+            Scroll down to read selected work
             &emsp; &emsp; &emsp; &emsp;
-            Scroll down to see work
+            Scroll down to read selected work
         </p>
 
     </div>
@@ -790,8 +921,9 @@ font-style: italic;
 
     <div class="about-wrapper" id="about-wrapper">
         <p about> About</p>
+        <!--<img src="images/GM_drawing.png" alt="Drawing" style="position: absolute; pointer-events: none; width: 20%; height: auto; z-index: 0;">-->
         <p about-text>
-            Gabe Marroquin is a designer, self-taught visual artist, and writer based in Brooklyn, New York,
+           <a href="https://gabeee.co/" class="link">Gabe Marroquin</a> is a designer, self-taught visual artist, and writer based in Brooklyn, New York,
             where he is currently pursuing an MFA in Design and Technology at Parsons School of Design.
             <br><br>
             He specializes in visual identity,
