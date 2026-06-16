@@ -19,23 +19,6 @@
         margin: 0;
         padding: 0;
         min-height: 100vh;
-        position: relative;
-        isolation: isolate;
-        overflow-x: hidden;
-    }
-
-    body::before {
-        content: "";
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        bottom: 20px;
-        left: 20px;
-        background-image: radial-gradient(circle at 1.3px 1.3px, #ddd 1.3px, transparent 0);
-        background-size: 30px 30px;
-        background-position: center top;
-        pointer-events: none;
-        z-index: -1;
     }
 
     p {
@@ -60,45 +43,6 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        position: relative;
-    }
-
-    .sticky-note {
-        position: absolute;
-        background-color: #f5e642;
-        padding: 20px 22px;
-        width: 300px;
-        height: 300px;
-        box-sizing: border-box;
-        font-family: "degular-mono", sans-serif;
-        font-size: 15px;
-        line-height: 1.6;
-        color: #222;
-        box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .sticky-note:nth-child(1) {
-        top: 12%;
-        left: calc(50% - 320px);
-        transform: rotate(-3deg);
-    }
-
-    .sticky-note:nth-child(2) {
-        top: 18%;
-        left: calc(50% + 20px);
-        transform: rotate(2.5deg);
-    }
-
-    .sticky-note:nth-child(3) {
-        bottom: 20%;
-        left: calc(50% - 320px);
-        transform: rotate(1.8deg);
-    }
-
-    .sticky-note:nth-child(4) {
-        bottom: 16%;
-        left: calc(50% + 20px);
-        transform: rotate(-2deg);
     }
 
     .center-text {
@@ -115,7 +59,6 @@
         top: 70px;
         z-index: 10;
         font-family: 'ExposureTrial[-90]';
-        /* font-family: 'ExposureItalicTrial[-50]', serif; */
     }
 
     nav ul {
@@ -138,9 +81,7 @@
     }
 
     nav ul li a:hover {
-        /* color: #007BFF; */
-        transition: color 0.3s ease;
-        text-decoration: 3px line-through solid #333;
+        color: #007BFF;
     }
 
     /* .dashed-grid-paper {
@@ -176,26 +117,23 @@
 
     [list-title] {
         font-family: 'ExposureItalicTrial[-70]', serif;
-        font-family: 'ExposureItalicTrial[-50]', serif;
         /*font-size: 24px;*/
         font-size: 27px;
         font-size: 24px;
         flex: 1;
         text-align: left;
-
+        
     }
-
-    a {
+    a{
         color: #111;
         text-decoration: none;
     }
-
+   
 
 
     [list-date] {
         font-family: 'ExposureTrial[-70]', serif;
         font-family: 'ExposureItalicTrial[-70]', serif;
-        font-family: 'ExposureItalicTrial[-50]', serif;
         /*font-size: 18px;*/
         font-size: 15px;
 
@@ -221,7 +159,7 @@
     }
 
     .marquee-wrapper p {
-        font-family: 'ExposureTrial[-50]', serif;
+        font-family: 'ExposureItalicTrial[-70]', serif;
         /* font-family: 'ExposureItalicTrial[+30]', serif; */
         font-size: 24px;
         color: #fff;
@@ -280,15 +218,6 @@
     }
 
     @font-face {
-        font-family: 'ExposureTrial[-50]';
-        /* The name you'll use in your CSS */
-        src: url('205TF_Exposure/ExposureTrial[-50].otf') format('opentype'), ;
-        font-weight: normal;
-        font-style: normal;
-    }
-
-
-    @font-face {
         font-family: 'ExposureTrial[-70]';
         /* The name you'll use in your CSS */
         src: url('205TF_Exposure/ExposureTrial[-70].otf') format('opentype'), ;
@@ -329,9 +258,9 @@
     }
 
     @font-face {
-        font-family: 'ExposureItalicTrial[-30]';
+        font-family: 'ExposureItalicTrial[+30]';
         /* The name you'll use in your CSS */
-        src: url('205TF_Exposure/ExposureItalicTrial[-30].otf') format('opentype'), ;
+        src: url('205TF_Exposure/ExposureItalicTrial[+30].otf') format('opentype'), ;
         font-weight: normal;
         font-style: normal;
     }
@@ -524,13 +453,6 @@ font-style: italic;
         font-size: 15px;
         text-decoration: none;
         font-family: 'ExposureItalicTrial[-70]';
-        font-family: 'ExposureItalicTrial[-50]';
-    }
-
-    p.read-more a:hover {
-
-        transition: color 0.3s ease;
-        text-decoration: 3px line-through;
     }
 
 
@@ -557,20 +479,18 @@ font-style: italic;
     }
 
     [about] {
-        font-family: 'ExposureTrial[-50]', serif;
+        font-family: 'ExposureItalicTrial[-70]', serif;
         /*font-size: 24px;*/
         font-size: 27px;
-        font-size: 36px;
         flex: 1;
         text-align: left;
-        /*text-decoration: underline #333 4px solid;
-        text-underline-offset: 10px;*/
+
     }
 
 
     [about-text] {
         font-family: 'ExposureTrial[+30]', serif;
-        font-family: "degular-mono", sans-serif;
+         font-family: "degular-mono", sans-serif;
         font-weight: 400;
         font-style: normal;
         /*font-size: 18px;*/
@@ -603,9 +523,9 @@ font-style: italic;
     }
 
     .contact-list a:hover {
-        font-family: 'ExposureItalicTrial[+30]';
+        color: #007BFF;
         transition: color 0.3s ease;
-        text-decoration: 3px line-through;
+        font-family: 'ExposureItalicTrial[+30]';
     }
 
     .footer-text {
@@ -617,135 +537,6 @@ font-style: italic;
         color: #111;
         padding: 20px 0;
     }
-
-    /* ── Tablet & phone ── */
-    @media (max-width: 768px) {
-
-        .sticky-note {
-            width: 195px;
-            height: 195px;
-            font-size: 13px;
-            padding: 16px 18px;
-        }
-
-        .sticky-note:nth-child(1) {
-            top: calc(50% - 200px);
-            bottom: auto;
-            left: calc(50% - 197px);
-        }
-
-        .sticky-note:nth-child(2) {
-            top: calc(50% - 192px);
-            bottom: auto;
-            left: calc(50% + 2px);
-        }
-
-        .sticky-note:nth-child(3) {
-            top: calc(50% + 5px);
-            bottom: auto;
-            left: calc(50% - 197px);
-        }
-
-        .sticky-note:nth-child(4) {
-            top: calc(50% + 13px);
-            bottom: auto;
-            left: calc(50% + 2px);
-        }
-
-        .content {
-            width: calc(100% - 32px);
-            margin: 0 16px;
-            padding: 10px 0;
-        }
-
-        .list-wrapper {
-            padding: 0 16px;
-        }
-
-        .collapsible:after {
-            margin-right: 16px;
-        }
-
-        [list-title] {
-            font-size: 18px;
-        }
-
-        [list-date] {
-            font-size: 13px;
-            text-align: right;
-            flex: 0 0 auto;
-        }
-
-        .about-wrapper {
-            flex-direction: column;
-            padding: 0 16px;
-            gap: 8px;
-        }
-
-        #contact-wrapper {
-            flex-direction: row;
-            align-items: flex-start;
-        }
-
-        [about-text] {
-            margin-right: 0;
-            padding-bottom: 16px;
-        }
-
-        .contact-list {
-            margin-right: 0;
-        }
-
-        .linebar {
-            margin: -10px 16px;
-        }
-    }
-
-    @media (max-width: 480px) {
-
-        .sticky-note {
-            width: 145px;
-            height: 145px;
-            font-size: 11px;
-            padding: 12px 14px;
-        }
-
-        .sticky-note:nth-child(1) {
-            top: calc(50% - 150px);
-            bottom: auto;
-            left: calc(50% - 147px);
-        }
-
-        .sticky-note:nth-child(2) {
-            top: calc(50% - 143px);
-            bottom: auto;
-            left: calc(50% + 2px);
-        }
-
-        .sticky-note:nth-child(3) {
-            top: calc(50% + 5px);
-            bottom: auto;
-            left: calc(50% - 147px);
-        }
-
-        .sticky-note:nth-child(4) {
-            top: calc(50% + 12px);
-            bottom: auto;
-            left: calc(50% + 2px);
-        }
-
-        [list-title] {
-            font-size: 16px;
-        }
-
-    }
-
-    .link {
-        color: #111;
-        text-decoration: wavy underline #111 2px;
-        text-underline-offset: 5px;
-    }
-
 </style>
 
 <body class="dashed-grid-paper">
@@ -759,37 +550,6 @@ font-style: italic;
     </nav>
 
     <div class="center-wrapper">
-        <div class="sticky-note">
-            Designer, artist, and writer based in
-            Brooklyn, NY<br>
-            <br>
-            MFA Design +<br>
-            Technology<br>
-            @ Parsons
-        </div>
-        <div class="sticky-note">
-            Writing about things, stuff, and whatever comes to mind.
-            <br>
-            <br>
-            Objects ×<br>
-            People ×<br>
-            Life ×<br>
-        </div>
-        <div class="sticky-note">
-            New essays whenever I can—here and there.
-            <br>
-            <br>
-            <br>
-            <br>
-            Scroll down<br>
-            to read ↓
-        </div>
-        <div class="sticky-note">
-            Design ×<br>
-            Culture ×<br>
-            Writing ×<br>
-            Everything else
-        </div>
         <p class="center-text" style="text-align: center; max-width: 600px;">
             <!--- Scribbled Word is a blog dedicated to exploring technology, design, culture, and religion through
             written articles. Aimed to provide insightful and thought-provoking content.-->
@@ -799,43 +559,27 @@ font-style: italic;
             <!--- An editorial journey through voice, creativity, and thought, expressed through the written word—one scribble
             at a time.-->
         </p>
+        <img src="images/GM_drawing.png" alt="Scribbled Word Logo"
+            style="margin-top: 20px; width: 350px; height: auto;">
     </div>
 
     <div class="marquee-wrapper">
-        <p>Scroll down to read selected work
+        <p>Scroll down to see work
             &emsp; &emsp; &emsp; &emsp;
-            Scroll down to read selected work
+            Scroll down to see work
             &emsp; &emsp; &emsp; &emsp;
-            Scroll down to read selected work
+            Scroll down to see work
             &emsp; &emsp; &emsp; &emsp;
-            Scroll down to read selected work
+            Scroll down to see work
         </p>
 
     </div>
 
     <button class="collapsible">
         <div class="list-wrapper">
-            <p list-title><a href="Story5.html">Deli Meat — Dialogue
-                </a></p>
-            <p list-date>Jun 11, 2026</p>
-        </div>
-    </button>
-    <div class="content">
-        <p>
-            An interaction between a deli cook and transplant, woke, vegan customer who’s ordering a staple NYC sandwich
-            but slowly requests to omit all key ingredients.
-            <br>
-            Is it still a New York experience to order a sandwich with no meat, no egg, no cheese, no bread?
-        </p>
-        <p class="read-more"><a href="Story5.html">Read more</a></p>
-    </div>
-    <div class="linebar"></div>
-
-    <button class="collapsible">
-        <div class="list-wrapper">
-            <p list-title><a href="Story4.html">Margot Demarco
-                    <br>Master of the Art of Silliness & Scrappiness
-                </a></p>
+            <p list-title>Margot Demarco
+                <br>Master of the Art of Silliness & Scrappiness
+            </p>
             <p list-date>Jun 10, 2026</p>
         </div>
     </button>
@@ -921,9 +665,8 @@ font-style: italic;
 
     <div class="about-wrapper" id="about-wrapper">
         <p about> About</p>
-        <!--<img src="images/GM_drawing.png" alt="Drawing" style="position: absolute; pointer-events: none; width: 20%; height: auto; z-index: 0;">-->
         <p about-text>
-           <a href="https://gabeee.co/" class="link">Gabe Marroquin</a> is a designer, self-taught visual artist, and writer based in Brooklyn, New York,
+            Gabe Marroquin is a multidisciplinary designer and self-taught visual artist based in Brooklyn, New York,
             where he is currently pursuing an MFA in Design and Technology at Parsons School of Design.
             <br><br>
             He specializes in visual identity,
@@ -969,54 +712,6 @@ font-style: italic;
     <script>
         // Enable smooth scrolling for anchor links
         document.documentElement.style.scrollBehavior = 'smooth';
-
-        // Draggable sticky notes
-        document.querySelectorAll('.sticky-note').forEach(note => {
-            note.style.cursor = 'grab';
-
-            note.addEventListener('mousedown', function (e) {
-                e.preventDefault();
-                const wrapper = note.closest('.center-wrapper');
-                const wrapperRect = wrapper.getBoundingClientRect();
-                const noteRect = note.getBoundingClientRect();
-
-                // Offset from mouse to note top-left
-                const offsetX = e.clientX - noteRect.left;
-                const offsetY = e.clientY - noteRect.top;
-
-                note.style.cursor = 'grabbing';
-                note.style.zIndex = 100;
-
-                // Switch to top/left absolute positioning relative to wrapper
-                note.style.position = 'absolute';
-                note.style.right = 'auto';
-                note.style.bottom = 'auto';
-                note.style.left = (noteRect.left - wrapperRect.left) + 'px';
-                note.style.top = (noteRect.top - wrapperRect.top) + 'px';
-
-                function onMouseMove(e) {
-                    let newLeft = e.clientX - wrapperRect.left - offsetX;
-                    let newTop = e.clientY - wrapperRect.top - offsetY;
-
-                    // Constrain within wrapper
-                    newLeft = Math.max(0, Math.min(newLeft, wrapper.offsetWidth - note.offsetWidth));
-                    newTop = Math.max(0, Math.min(newTop, wrapper.offsetHeight - note.offsetHeight));
-
-                    note.style.left = newLeft + 'px';
-                    note.style.top = newTop + 'px';
-                }
-
-                function onMouseUp() {
-                    note.style.cursor = 'grab';
-                    note.style.zIndex = '';
-                    document.removeEventListener('mousemove', onMouseMove);
-                    document.removeEventListener('mouseup', onMouseUp);
-                }
-
-                document.addEventListener('mousemove', onMouseMove);
-                document.addEventListener('mouseup', onMouseUp);
-            });
-        });
     </script>
 </body>
 <script src="life.js" async defer></script>
