@@ -12,22 +12,43 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.typekit.net/kxz4hwz.css">
+
 </head>
 <style>
     body {
         margin: 0;
         padding: 0;
         min-height: 100vh;
+        position: relative;
+        isolation: isolate;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        bottom: 20px;
+        left: 20px;
+        background-image: radial-gradient(circle at 1.3px 1.3px, #ddd 1.3px, transparent 0);
+        background-size: 30px 30px;
+        background-position: center top;
+        pointer-events: none;
+        z-index: -1;
     }
 
     p {
-        font-family: 'Georgia', serif;
-        font-family: 'ExposureItalicTrial[-70]', serif;
+
+        /* font-family: 'ExposureItalicTrial[-70]', serif;
         font-family: "inter-18pt", sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 24px;
+        font-size: 24px;*/
+        font-family: "degular-mono", sans-serif;
+        font-weight: 400;
+        font-style: normal;
         font-size: 15px;
+        font-size: 18px;
         line-height: 1.6;
         color: #333;
     }
@@ -38,6 +59,45 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        position: relative;
+    }
+
+    .sticky-note {
+        position: absolute;
+        background-color: #f5e642;
+        padding: 20px 22px;
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+        font-family: "degular-mono", sans-serif;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #222;
+        box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .sticky-note:nth-child(1) {
+        top: 12%;
+        left: calc(50% - 320px);
+        transform: rotate(-3deg);
+    }
+
+    .sticky-note:nth-child(2) {
+        top: 18%;
+        left: calc(50% + 20px);
+        transform: rotate(2.5deg);
+    }
+
+    .sticky-note:nth-child(3) {
+        bottom: 20%;
+        left: calc(50% - 320px);
+        transform: rotate(1.8deg);
+    }
+
+    .sticky-note:nth-child(4) {
+        bottom: 16%;
+        left: calc(50% + 20px);
+        transform: rotate(-2deg);
     }
 
     .center-text {
@@ -54,6 +114,7 @@
         top: 70px;
         z-index: 10;
         font-family: 'ExposureTrial[-90]';
+        /* font-family: 'ExposureItalicTrial[-50]', serif; */
     }
 
     nav ul {
@@ -76,10 +137,12 @@
     }
 
     nav ul li a:hover {
-        color: #007BFF;
+        /* color: #007BFF; */
+        transition: color 0.3s ease;
+        text-decoration: 3px line-through solid #333;
     }
 
-    .dashed-grid-paper {
+    /* .dashed-grid-paper {
 
         --grid-size: 30px;
         --grid-strength: 1px;
@@ -96,7 +159,7 @@
             linear-gradient(to right, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
             linear-gradient(to bottom, var(--grid-color) var(--grid-strength), transparent var(--grid-strength));
         background-attachment: fixed;
-    }
+    }*/
 
     .list-wrapper {
         /* border-bottom: #333 1.5px solid;*/
@@ -112,18 +175,26 @@
 
     [list-title] {
         font-family: 'ExposureItalicTrial[-70]', serif;
+        font-family: 'ExposureItalicTrial[-50]', serif;
         /*font-size: 24px;*/
         font-size: 27px;
+        font-size: 24px;
         flex: 1;
         text-align: left;
 
-
     }
+
+    a {
+        color: #111;
+        text-decoration: none;
+    }
+
 
 
     [list-date] {
         font-family: 'ExposureTrial[-70]', serif;
         font-family: 'ExposureItalicTrial[-70]', serif;
+        font-family: 'ExposureItalicTrial[-50]', serif;
         /*font-size: 18px;*/
         font-size: 15px;
 
@@ -141,20 +212,19 @@
         height: 50px;
         overflow: hidden;
         position: relative;
-        border-top: #333 1.5px solid;
-        border-bottom: #333 1.5px solid;
+        border-top: #333 2px solid;
+        border-bottom: #333 2px solid;
         /*background-color: #333;*/
         /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
         /* Adding a subtle shadow */
     }
 
     .marquee-wrapper p {
-        font-family: 'ExposureItalicTrial[-70]', serif;
+        font-family: 'ExposureTrial[-50]', serif;
         /* font-family: 'ExposureItalicTrial[+30]', serif; */
         font-size: 24px;
-        font-size: 15px;
         color: #fff;
-        color: #007BFF;
+        color: #111;
         position: absolute;
         width: 100%;
         height: 100%;
@@ -209,6 +279,15 @@
     }
 
     @font-face {
+        font-family: 'ExposureTrial[-50]';
+        /* The name you'll use in your CSS */
+        src: url('205TF_Exposure/ExposureTrial[-50].otf') format('opentype'), ;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+
+    @font-face {
         font-family: 'ExposureTrial[-70]';
         /* The name you'll use in your CSS */
         src: url('205TF_Exposure/ExposureTrial[-70].otf') format('opentype'), ;
@@ -231,7 +310,8 @@
         font-weight: normal;
         font-style: normal;
     }
-      @font-face {
+
+    @font-face {
         font-family: 'ExposureItalicTrial[+30]';
         /* The name you'll use in your CSS */
         src: url('205TF_Exposure/ExposureItalicTrial[+30].otf') format('opentype'), ;
@@ -248,9 +328,9 @@
     }
 
     @font-face {
-        font-family: 'ExposureItalicTrial[+30]';
+        font-family: 'ExposureItalicTrial[-30]';
         /* The name you'll use in your CSS */
-        src: url('205TF_Exposure/ExposureItalicTrial[+30].otf') format('opentype'), ;
+        src: url('205TF_Exposure/ExposureItalicTrial[-30].otf') format('opentype'), ;
         font-weight: normal;
         font-style: normal;
     }
@@ -269,6 +349,30 @@
         src: url('205TF_Exposure/ExposureTrial[0].otf') format('opentype'), ;
         font-weight: normal;
         font-style: normal;
+    }
+
+    .Degular-Mono-Regular {
+        font-family: "degular-mono", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .Degular-Mono-Italic {
+        font-family: "degular-mono", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .Degular-Mono-Bold {
+        font-family: "degular-mono", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .Degular-Mono-Bold-Italic {
+        font-family: "degular-mono", sans-serif;
+        font-weight: 700;
+        font-style: italic;
     }
 
     /*
@@ -406,18 +510,26 @@ font-style: italic;
     }
 
     .linebar {
-        width: 100%;
-        height: 1.5px;
-        background-color: #333;
-        margin: -10px 0;
-        /*border-bottom: #333 1.5px solid;*/
+        border-top: 2px dashed #333;
+        padding: 10px 0;
+        /* optional: add space between borders and content */
+        margin: -10px 30px;
+        /* margin: -10px 0;*/
     }
 
-    p a {
+    p.read-more a {
         color: #007BFF;
         color: #111;
+        font-size: 15px;
         text-decoration: none;
         font-family: 'ExposureItalicTrial[-70]';
+        font-family: 'ExposureItalicTrial[-50]';
+    }
+
+    p.read-more a:hover {
+
+        transition: color 0.3s ease;
+        text-decoration: 3px line-through;
     }
 
 
@@ -444,9 +556,10 @@ font-style: italic;
     }
 
     [about] {
-        font-family: 'ExposureItalicTrial[-70]', serif;
+        font-family: 'ExposureTrial[-50]', serif;
         /*font-size: 24px;*/
         font-size: 27px;
+        font-size: 36px;
         flex: 1;
         text-align: left;
 
@@ -455,9 +568,12 @@ font-style: italic;
 
     [about-text] {
         font-family: 'ExposureTrial[+30]', serif;
-
+        font-family: "degular-mono", sans-serif;
+        font-weight: 400;
+        font-style: normal;
         /*font-size: 18px;*/
-        font-size: 27px;
+        font-size: 24px;
+        padding-bottom: 30px;
         margin-right: 5%;
         flex: 1;
         text-align: left;
@@ -485,13 +601,13 @@ font-style: italic;
     }
 
     .contact-list a:hover {
-        color: #007BFF;
-        transition: color 0.3s ease;
         font-family: 'ExposureItalicTrial[+30]';
+        transition: color 0.3s ease;
+        text-decoration: 3px line-through;
     }
 
     .footer-text {
-        border-top: 1.5px solid #333;
+        border-top: 2px solid #333;
         font-family: 'ExposureTrial[-90]', serif;
         font-family: 'ExposureTrial[+70]';
         font-size: 15px;
@@ -512,6 +628,37 @@ font-style: italic;
     </nav>
 
     <div class="center-wrapper">
+        <div class="sticky-note">
+            Designer, artist, and writer based in
+            Brooklyn, NY<br>
+            <br>
+            MFA Design +<br>
+            Technology<br>
+            @ Parsons
+        </div>
+        <div class="sticky-note">
+            Writing about things, stuff, and whatever comes to mind.
+            <br>
+            <br>
+            Objects ×<br>
+            People ×<br>
+            Life ×<br>
+        </div>
+        <div class="sticky-note">
+            New essays whenever I can—here and there.
+            <br>
+            <br>
+            <br>
+            <br>
+            Scroll down<br>
+            to read ↓
+        </div>
+        <div class="sticky-note">
+            Design ×<br>
+            Culture ×<br>
+            Writing ×<br>
+            Everything else
+        </div>
         <p class="center-text" style="text-align: center; max-width: 600px;">
             <!--- Scribbled Word is a blog dedicated to exploring technology, design, culture, and religion through
             written articles. Aimed to provide insightful and thought-provoking content.-->
@@ -521,8 +668,6 @@ font-style: italic;
             <!--- An editorial journey through voice, creativity, and thought, expressed through the written word—one scribble
             at a time.-->
         </p>
-        <img src="images/GM_drawing.png" alt="Scribbled Word Logo"
-            style="margin-top: 20px; width: 350px; height: auto;">
     </div>
 
     <div class="marquee-wrapper">
@@ -537,11 +682,30 @@ font-style: italic;
 
     </div>
 
-     <button class="collapsible">
+    <button class="collapsible">
         <div class="list-wrapper">
-            <p list-title>Margot Demarco 
-            <br>Master of the Art of Silliness & Scrappiness</p>
-            <p list-date>June 10, 2026</p>
+            <p list-title><a href="Story5.html">Deli Meat — Dialogue
+                </a></p>
+            <p list-date>Jun 11, 2026</p>
+        </div>
+    </button>
+    <div class="content">
+        <p>
+            An interaction between a deli cook and transplant, woke, vegan customer who’s ordering a staple NYC sandwich
+            but slowly requests to omit all key ingredients.
+            <br>
+            Is it still a New York experience to order a sandwich with no meat, no egg, no cheese, no bread?
+        </p>
+        <p class="read-more"><a href="Story5.html">Read more</a></p>
+    </div>
+    <div class="linebar"></div>
+
+    <button class="collapsible">
+        <div class="list-wrapper">
+            <p list-title><a href="Story4.html">Margot Demarco
+                    <br>Master of the Art of Silliness & Scrappiness
+                </a></p>
+            <p list-date>Jun 10, 2026</p>
         </div>
     </button>
     <div class="content">
@@ -551,7 +715,7 @@ font-style: italic;
             knack for finding beauty in the unconventional, Demarco's art invites viewers to embrace their playful side
             and find joy in the unexpected.
         </p>
-        <p><a href="Story4.html">Read more</a></p>
+        <p class="read-more"><a href="Story4.html">Read more</a></p>
     </div>
 
     <div class="linebar"></div>
@@ -559,7 +723,7 @@ font-style: italic;
     <button class="collapsible">
         <div class="list-wrapper">
             <p list-title><a href="Story1.html"> My Rubber Duckie</a></p>
-            <p list-date>June 09, 2026</p>
+            <p list-date>Jun 09, 2026</p>
         </div>
     </button>
     <div class="content">
@@ -569,14 +733,14 @@ font-style: italic;
             ex ea commodo consequat.-->
             A short story about my childhood rubber duckie, and its sudden disappearance entering adulthood.
         </p>
-        <p><a href="Story1.html">Read more</a></p>
+        <p class="read-more"><a href="Story1.html">Read more</a></p>
     </div>
     <div class="linebar"></div>
 
     <button class="collapsible">
         <div class="list-wrapper">
             <p list-title><a href="Story2.html"> Ah! Rats!</a></p>
-            <p list-date>June 08, 2026</p>
+            <p list-date>Jun 08, 2026</p>
         </div>
     </button>
     <div class="content">
@@ -587,14 +751,14 @@ font-style: italic;
             An essay about New York City's most common neighbor: the rat, and how the city has developed a complex
             relationship with this resilient creature.
         </p>
-        <p><a href="Story2.html">Read more</a></p>
+        <p class="read-more"><a href="Story2.html">Read more</a></p>
     </div>
     <div class="linebar"></div>
 
     <button class="collapsible">
         <div class="list-wrapper">
             <p list-title><a href="Story3.html"> Yellow Letter — Not Returned to Sender</a></p>
-            <p list-date>June 03, 2026</p>
+            <p list-date>Jun 03, 2026</p>
         </div>
     </button>
     <div class="content">
@@ -604,7 +768,7 @@ font-style: italic;
             ex ea commodo consequat.-->
             An essay about a yellow letter, an object of personal significance.
         </p>
-        <p><a href="Story3.html">Read more</a></p>
+        <p class="read-more"><a href="Story3.html">Read more</a></p>
     </div>
     <div class="linebar"></div>
 
@@ -627,23 +791,12 @@ font-style: italic;
     <div class="about-wrapper" id="about-wrapper">
         <p about> About</p>
         <p about-text>
-            <!--Scribble Word is a blog dedicated to exploring technology, design, culture, and religion through
-            written articles. Aimed to provide insightful and thought-provoking content.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.--->
-
-            Gabe Marroquin is a multidisciplinary designer and self-taught visual artist based in Brooklyn, New York,
+            Gabe Marroquin is a designer, self-taught visual artist, and writer based in Brooklyn, New York,
             where he is currently pursuing an MFA in Design and Technology at Parsons School of Design.
             <br><br>
             He specializes in visual identity,
             digital design, creative coding, and experimental artistic practices. He has worked with clients including
             the Daily Mail, Jackfir, and SolidSky.
-
-
-
         </p>
     </div>
     <div class="linebar"></div>
@@ -655,7 +808,7 @@ font-style: italic;
                 <li><a href="mailto:Gabemarroquin.art@gmail.com">Email</a></li>
                 <li><a href="https://www.linkedin.com/in/gabe-marroquin-44049baa/">LinkedIn</a></li>
                 <li><a href="https://www.instagram.com/the.gabe.marroquin/">Instagram</a></li>
-                <li><a href="https://www.are.na/gabe-marroquin/channels">Are.na</a></li>
+                <!--<li><a href="https://www.are.na/gabe-marroquin/channels">Are.na</a></li>-->
             </p>
         </ul>
 
@@ -684,6 +837,54 @@ font-style: italic;
     <script>
         // Enable smooth scrolling for anchor links
         document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Draggable sticky notes
+        document.querySelectorAll('.sticky-note').forEach(note => {
+            note.style.cursor = 'grab';
+
+            note.addEventListener('mousedown', function (e) {
+                e.preventDefault();
+                const wrapper = note.closest('.center-wrapper');
+                const wrapperRect = wrapper.getBoundingClientRect();
+                const noteRect = note.getBoundingClientRect();
+
+                // Offset from mouse to note top-left
+                const offsetX = e.clientX - noteRect.left;
+                const offsetY = e.clientY - noteRect.top;
+
+                note.style.cursor = 'grabbing';
+                note.style.zIndex = 100;
+
+                // Switch to top/left absolute positioning relative to wrapper
+                note.style.position = 'absolute';
+                note.style.right = 'auto';
+                note.style.bottom = 'auto';
+                note.style.left = (noteRect.left - wrapperRect.left) + 'px';
+                note.style.top = (noteRect.top - wrapperRect.top) + 'px';
+
+                function onMouseMove(e) {
+                    let newLeft = e.clientX - wrapperRect.left - offsetX;
+                    let newTop = e.clientY - wrapperRect.top - offsetY;
+
+                    // Constrain within wrapper
+                    newLeft = Math.max(0, Math.min(newLeft, wrapper.offsetWidth - note.offsetWidth));
+                    newTop = Math.max(0, Math.min(newTop, wrapper.offsetHeight - note.offsetHeight));
+
+                    note.style.left = newLeft + 'px';
+                    note.style.top = newTop + 'px';
+                }
+
+                function onMouseUp() {
+                    note.style.cursor = 'grab';
+                    note.style.zIndex = '';
+                    document.removeEventListener('mousemove', onMouseMove);
+                    document.removeEventListener('mouseup', onMouseUp);
+                }
+
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+        });
     </script>
 </body>
 <script src="life.js" async defer></script>
