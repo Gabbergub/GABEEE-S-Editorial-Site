@@ -48,7 +48,7 @@
         font-size: 24px;
         font-size: 15px;
         line-height: 1.6;
-        color: #333;
+        color: #111;
     }
 
     .center-wrapper {
@@ -175,8 +175,10 @@
         font-size: 27px;
         flex: 1;
         text-align: left;
-
-
+    }
+     .highlight {
+        background: #FBF719;
+        padding: 0 10px;
     }
 
 
@@ -190,6 +192,8 @@
         flex: 1;
         text-align: left;
         color: #111;
+        text-decoration: wavy underline #111 2px;
+        text-underline-offset: 5px;
 
     }
 
@@ -453,12 +457,20 @@ font-style: italic;
 
     }
 
-    .linebar {
+    /*.linebar {
         width: 100%;
         height: 1.5px;
-        background-color: #333;
+        background-color: #111;
         margin: -10px 0;
-        /*border-bottom: #333 1.5px solid;*/
+        /*border-bottom: #333 1.5px solid;
+    }*/
+
+     .linebar {
+        border-top: 2px dashed #333;
+        padding: 10px 0;
+        /* optional: add space between borders and content */
+        margin: 30px 30px;
+        /* margin: -10px 0;*/
     }
 
     p a {
@@ -539,7 +551,7 @@ font-style: italic;
     }
 
     .footer-text {
-        border-top: 2px solid #333;
+        border-top: 2px solid #111;
         font-family: 'ExposureTrial[-90]', serif;
         font-family: 'ExposureTrial[+70]';
         font-size: 15px;
@@ -570,9 +582,11 @@ font-style: italic;
     </nav>
 
     <div class="title-info">
-        <p list-title> Deli Meat — Dialogue</p>
+        <p list-title><span class="highlight">Deli Meat — Dialogue</span></p>
         <p list-date>June 11, 2026</p>
     </div>
+
+    <div class="linebar"></div>
 
 
     <div class="center-wrapper">
