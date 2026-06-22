@@ -37,7 +37,7 @@
         z-index: -1;
     }
 
-     p {
+    p {
         /* font-family: 'ExposureItalicTrial[-70]', serif;
         font-family: "inter-18pt", sans-serif;
         font-weight: 400;
@@ -67,6 +67,16 @@
         font-weight: 400;
         font-style: normal;
         font-size: 18px;
+        width: min(800px, calc(100% - 80px));
+        margin: 0 auto;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+    }
+
+    @media (max-width: 768px) {
+        .center-text {
+            width: calc(100% - 40px);
+        }
     }
 
     nav {
@@ -94,13 +104,13 @@
 
     nav ul li a {
         text-decoration: none;
-        color: #111;
+        color: #333;
         font-weight: bold;
         transition: color 0.3s ease;
     }
 
     nav ul li a:hover {
-         /* color: #007BFF; */
+        /* color: #007BFF; */
         transition: color 0.3s ease;
         text-decoration: 3px line-through solid #333;
     }
@@ -167,6 +177,7 @@
         flex: 1;
         text-align: left;
     }
+
     .highlight {
         background: #FBF719;
         padding: 0 10px;
@@ -456,7 +467,7 @@ font-style: italic;
         /*border-bottom: #333 1.5px solid;
     }*/
 
-     .linebar {
+    .linebar {
         border-top: 2px dashed #333;
         padding: 10px 0;
         /* optional: add space between borders and content */
@@ -550,6 +561,7 @@ font-style: italic;
         color: #111;
         padding: 20px 0;
     }
+
     .emphasis {
         font-family: 'ExposureTrial[+30]', serif;
         font-family: "degular-mono", sans-serif;
@@ -572,74 +584,112 @@ font-style: italic;
     </nav>
 
     <div class="title-info">
-        <p list-title><span class="highlight">Margot Demarco —</span>
-            <br>
-           <span class="highlight">Master of the Art of Silliness & Scrappiness</span>
-        </p>
-        <p list-date>June 10, 2026</p>
+        <p list-title><span class="highlight">The Way Nature Works — Poem</span></p>
+        <p list-date>Jun 22, 2026</p>
     </div>
 
     <div class="linebar"></div>
 
+
     <div class="center-wrapper">
         <p class="center-text" style="text-align: left; max-width: 800px;">
-          <span class="emphasis">Margot Demarco is a Seattle-raised artist now based and building her craft in the heart of New York City.
-            Her childhood was filled with the arts and community events such as parades. The 40-year-old artist
-            continues to grow her craft at her Long Island City studio–I was lucky to get some insight.</span>
+            Nature’s self-sustained beauty can’t be explained in a laconic manner.
+            <br>
+            Night cuts day short, a lurid strife in broad daylight.
+            <br>
+            Night sits on earth, everything blue-lit, as it waits for a rematch.
+            <br>
+            As time passes by, the gallant night makes way for day to take its rightful place on the throne.
             <br><br>
-            A hot summer Monday morning was spent within Margot’s creative space. Welcomed at the entrance of her studio
-            building, we spent a moment in casual chatter. A transition was then made through the building up to her
-            studio. Entering Morgot’s studio, we are greeted by the loud high-pitch barks of her dog Tony, a Chihuahua,
-            small but full of energy. Immediately, as I walked through her studio space, I noticed a recent project of
-            hers, what seemed like a white window with a makeshift laptop keyboard protruding at an angle as a laptop
-            would. “A Windows computer on display,” another guest claimed. She chuckled as she responded, “yah think?”
-            You can already get a glimpse of her world, a world not confined by the walls of her studio, but one that is
-            open, curious, and filled with subtle humor.
+            Like fallen soldiers, the sun rises.
+            <br>
+            The sun’s rays gift life and warmth to the earth.
+            <br>
+            The light allays the earth’s restfulness.
+            <br>
+            Such a wonderful and saccharine moment.
+            <br>
+            But, like in life, there are moments that spoil.
             <br><br>
-            The piece embodied much of what makes her work distinctive: an everyday object transformed into something
-            playful, strange, and open to interpretation.
+            A storm comes uninvited.
+            <br>
+            The storm kibitzes during its own tragedy.
+            <br>
+            The chirpings of birds and the thunder form such a contrapuntal composition.
+            <br>
+            A cold, improvident, lyricism downpour of tears hits earth.
+            <br>
+            But, like all seasons, time is not on its side.
+            <br>
+            The sun attenuates the storm, and right away it absconds from the scene.
+            <br>
+            In its trail, it leaves a raffish mess.
+            <br>
+            The trees stand weary from its passing,
+            <br>
+            And the earth remembers where the rain once fell.
             <br><br>
-            To those who are familiar with her work, you know that she has a technique that is uniquely her own. She
-            unapologetically translates her artistic childhood upbringing, beginning at around three or four years old,
-            into much of her work. “A lot! Yeah, yeah. It’s the humor and I think it’s the scrappiness,” she says when
-            reflecting on those influences, embracing a confidence in being silly. The playfulness is embedded in simple
-            everyday objects that she then transforms into something head-turning.
+            Like storms, seasons also occur.
+            <br>
+            Fall passes with its tears
+            <br>
+            And its repertoire of fiery-colored leaves.
+            <br>
+            Winter makes its way.
+            <br>
+            A sharp, coarse, cold wind blows.
+            <br>
+            The residue of rain freezes,
+            <br>
+            And soon the indolent snow falls slowly,
+            <br>
+            Forming a kind of gossamer.
             <br><br>
-            That spirit of humor and resourcefulness has long informed her work. Earlier in her art college career, she
-            took a class that led to entering a competition led by Walmart, focused on mass-produced eco ventures. She
-            designed and proposed a clear plastic bean bag chair that the user could fill with their trash. The idea
-            reflected her ongoing fascination with reuse and transforming the ordinary into something unexpected.
+            The feeling of the inert winter soon wears off,
+            <br>
+            And then the depletion of the snow begins.
+            <br>
+            What falls are beautiful frozen puffs of depression.
+            <br>
+            The silence breaks the wind,
+            <br>
+            And the moon sets the mood.
+            <br>
+            A long day, a peaceful night;
+            <br>
+            Nature takes its rest from its misery.
             <br><br>
-            “I am a big believer that once something is put out in the world, your intent, you don’t get to control how
-            it's interpreted,” she says.
+            Time passes; the cycle restarts.
+            <br>
+            The frozen earth begins to soften,
+            <br>
+            And the sleeping roots begin to stir.
             <br><br>
-            “It should exist as a self-contained thing.”
+            The moon drifts away, and comes the gleaming light.
+            <br>
+            Nature awakens from its hibernation.
+            <br>
+            A new day glistens with opportunities.
+            <br>
+            Spring comes, then summer;
+            <br>
+            Nature is beautiful, albeit bipolar.
+            <br>
+            Nothing can compare to its rare touch,
+            <br>
+            A gentle touch that leaves a mark on the fertile soil.
+            <br>
+            The aroma of fresh life fills the air.
+            <br>
+            Flowers rise from the fertile soil,
+            <br>
+            Stretching toward the warmth they once lacked.
+            <br>
+            Spring is the prime season in which chances seem to be in hand.
+            <br>
+            What appeared lost now finds its place again.
             <br><br>
-            For those who are not familiar with her work, she reshapes typical found objects, turning them into
-            something refreshing and ambiguous. In her ethos, the work process is focused on the first two ‘R’s’ of the
-            recycling process: Reduce and Reuse. She is anything but the status quo, a master of a personalized system
-            and technique driven by “instinct and vibes.” This is very much seen in her studio, like the two clocks
-            hanging, formed from an accumulation of trash, and a wooden bookshelf with objects infused strategically
-            into it. It is a puzzle game that follows her own set of rules.
-            <br><br>
-            That same independence extends beyond the work itself and into how she presents herself professionally.
-            <br><br>
-            With her clientele growing, including work with well-known names such as Supreme and Zara, she maintains a
-            subtle yet visible online presence. When searching for her work, it is hard not to notice that she does not
-            have a working website presenting her work and framework.
-            <br><br>
-            “It died,” she says. The website hosting service shut down, taking her website with it.
-            <br><br>
-            “I don’t need to make a new one,” Margot says. “The web isn’t what it used to be. It’s no longer an open
-            space.”
-            <br><br>
-            She explains that clients now come to her through DMs on Instagram, and that this has only strengthened her
-            visibility compared to her now-defunct website. Like her work, her approach is guided less by convention and
-            more by what feels useful, intuitive, and authentic to her practice.
-            <br><br>
-            Her work very much embodies a solution to a problem, filling cracks with the gold of silliness and
-            scrappiness. Leaving her studio, I felt inspired and driven to create my own solutions to the world's
-            problems around me.
+            This is the way nature works.
         </p>
 
     </div>
