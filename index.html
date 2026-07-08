@@ -12,6 +12,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.typekit.net/kxz4hwz.css">
+    <link rel="stylesheet" href="https://use.typekit.net/kxz4hwz.css">
 
 </head>
 <style>
@@ -50,9 +51,12 @@
         font-weight: 400;
         font-style: normal;
         font-size: 15px;
-        font-size: 18px;
+        /*font-size: 18px;*/
         line-height: 1.6;
-        color: #333;
+
+
+        /*color: #333;*/
+        color: #000000;
     }
 
     .center-wrapper {
@@ -65,6 +69,7 @@
     }
 
     .sticky-note {
+        margin-top: 55px;
         position: absolute;
         background-color: #f5e642;
         padding: 20px 22px;
@@ -72,9 +77,14 @@
         height: 300px;
         box-sizing: border-box;
         font-family: "degular-mono", sans-serif;
+
+        /*font-family: "navigo", sans-serif;
+        font-weight: 400;
+        font-style: normal;*/
+
         font-size: 15px;
         line-height: 1.6;
-        color: #222;
+        color: #000000;
         box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
     }
 
@@ -107,33 +117,72 @@
         font-size: 24px;
     }
 
-    nav {
+    .topnav {
+        z-index: 10;
+        position: relative;
+        position: fixed;
         width: 100%;
+        padding: 20px 0;
+    }
+
+    .logo {
+        display: block;
+        margin: 0 auto;
+        max-height: 60px;
+        max-height: 80px;
+        width: auto;
+    }
+
+    nav {
         background: transparent;
         /*box-shadow: 0 2px 4px rgba(0,0,0,0.03);*/
         padding: 10px 0;
-        position: sticky;
-        top: 70px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: auto;
         z-index: 10;
         font-family: 'ExposureTrial[-90]';
         /* font-family: 'ExposureItalicTrial[-50]', serif; */
+        font-family: "navigo", sans-serif;
+        font-family: "degular-mono", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: lowercase;
     }
 
     nav ul {
         list-style: none;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: flex-end;
         margin: 0;
         padding: 0;
     }
 
     nav ul li {
-        margin: 0 15px;
+        margin: 8px 0;
+    }
+
+    nav ul li:nth-child(1) {
+        transform: rotate(-4deg);
+    }
+
+    nav ul li:nth-child(2) {
+        transform: rotate(3deg);
+    }
+
+    nav ul li:nth-child(3) {
+        transform: rotate(-2.5deg);
     }
 
     nav ul li a {
+        background: #f5e642;
+        padding: 3px 10px;
+        display: inline-block;
         text-decoration: none;
-        color: #333;
+        /*color: #111;*/
+        color: #000000;
         font-weight: bold;
         transition: color 0.3s ease;
     }
@@ -141,7 +190,8 @@
     nav ul li a:hover {
         /* color: #007BFF; */
         transition: color 0.3s ease;
-        text-decoration: 3px line-through solid #333;
+        text-decoration: 3px line-through solid #000000;
+
     }
 
     /* .dashed-grid-paper {
@@ -180,10 +230,12 @@
         font-family: 'ExposureItalicTrial[-50]', serif;
         /*font-size: 24px;*/
         font-size: 27px;
+
+        font-family: "stefan", sans-serif;
         font-size: 24px;
         flex: 1;
         text-align: left;
-
+        color: #000000;
 
         /*display: flex;
         align-items: center;
@@ -200,7 +252,7 @@
     }*/
 
     a {
-        color: #111;
+        color: #000000;
         text-decoration: none;
     }
 
@@ -211,11 +263,17 @@
         font-family: 'ExposureItalicTrial[-70]', serif;
         font-family: 'ExposureItalicTrial[-50]', serif;
         /*font-size: 18px;*/
+        font-family: "degular-mono", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: uppercase;
         font-size: 15px;
+        /*font-size: 18px;*/
+
 
         flex: 1;
         text-align: left;
-        color: #111;
+        color: #000000;
 
     }
 
@@ -238,9 +296,18 @@
     .marquee-wrapper p {
         font-family: 'ExposureTrial[-50]', serif;
         /* font-family: 'ExposureItalicTrial[+30]', serif; */
-        font-size: 24px;
+
+        font-family: "degular-mono", sans-serif;
+        font-family: "navigo", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: uppercase;
+        font-style: italic;
+        font-size: 18px;
+
+        /*font-size: 24px;*/
         color: #fff;
-        color: #111;
+        color: #000000;
         position: absolute;
         width: 100%;
         height: 100%;
@@ -248,17 +315,24 @@
         line-height: 50px;
         text-align: center;
         transform: translateX(50%);
-        animation: bouncing-text 10s ease-in-out infinite alternate;
+        animation: bouncing-text 3s ease-in-out infinite alternate;
     }
 
     @keyframes bouncing-text {
         0% {
-            transform: translateX(50%);
+            transform: translateX(7%);
         }
 
         100% {
-            transform: translateX(-50%);
+            transform: translateX(-7%);
         }
+    }
+
+    @font-face {
+        font-family: 'Stefan';
+        src: url('ABC Stefan Edu/ABCStefanEdu-Simple.woff2') format('woff');
+        font-weight: normal;
+        font-style: normal;
     }
 
 
@@ -391,8 +465,14 @@
         font-style: italic;
     }
 
+    .Degular-Mono-Medium {
+        font-family: "degular-mono", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+    }
+
     /*
-Inter 18pt Regular 
+Inter 18pt Regular
 font-family: "inter-18pt", sans-serif;
 font-weight: 400;
 font-style: normal;
@@ -453,6 +533,11 @@ font-weight: 700;
 font-style: italic;
 */
 
+    /*Navigo Regular
+font-family: "navigo", sans-serif;
+font-weight: 400;
+font-style: normal;*/
+
     /*.collapsible {
         background-color: transparent;
         color: white;
@@ -511,7 +596,7 @@ font-style: italic;
 
     .collapsible:after {
         content: '\002B';
-        color: #111;
+        color: #000000;
         margin-right: 50px;
         margin-left: 5px;
         flex-shrink: 0;
@@ -539,7 +624,7 @@ font-style: italic;
     }
 
     .linebar {
-        border-top: 2px dashed #333;
+        border-top: 2.5px dashed #000000;
         padding: 10px 0;
         /* optional: add space between borders and content */
         margin: -10px 30px;
@@ -547,16 +632,21 @@ font-style: italic;
     }
 
     p.read-more a {
-        color: #007BFF;
-        color: #111;
-        font-size: 15px;
-        text-decoration: none;
+        /*color: #007BFF;
         font-family: 'ExposureItalicTrial[-70]';
-        font-family: 'ExposureItalicTrial[-50]';
+        font-family: 'ExposureItalicTrial[-50]';*/
+        color: #000000;
+        font-size: 18px;
+        text-decoration: none;
+
+        font-family: "stefan", sans-serif;
+        font-style: normal;
+        font-style: italic;
+        background: #f5e642;
+        padding: 0 10px;
     }
 
     p.read-more a:hover {
-
         transition: color 0.3s ease;
         text-decoration: 3px line-through;
     }
@@ -587,6 +677,12 @@ font-style: italic;
     [about] {
         font-family: 'ExposureTrial[-50]', serif;
         /*font-size: 24px;*/
+        /*font-family: "degular-mono", sans-serif;
+        font-weight: 600;
+        font-style: normal;*/
+        font-family: 'stefan', sans-serif;
+
+        text-transform: uppercase;
         font-size: 27px;
         font-size: 36px;
         flex: 1;
@@ -602,12 +698,18 @@ font-style: italic;
         font-weight: 400;
         font-style: normal;
         /*font-size: 18px;*/
+
+        font-family: "navigo", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 35px;
+
         font-size: 24px;
         padding-bottom: 30px;
         margin-right: 5%;
         flex: 1;
         text-align: left;
-        color: #111;
+        color: #000000;
 
     }
 
@@ -626,28 +728,49 @@ font-style: italic;
 
     .contact-list a {
         text-decoration: none;
-        color: #111;
+        color: #000000;
 
     }
 
     .contact-list a:hover {
         font-family: 'ExposureItalicTrial[+30]';
+
+        font-family: 'stefan', sans-serif;
+        font-style: italic;
+        font-size: 24px;
         transition: color 0.3s ease;
         text-decoration: 3px line-through;
     }
 
     .footer-text {
-        border-top: 2px solid #333;
-        font-family: 'ExposureTrial[-90]', serif;
-        font-family: 'ExposureTrial[+70]';
+        border-top: 2px solid #000000;
+        font-family: 'ExposureTrial[-50]', serif;
+
+        /*font-family: 'ExposureTrial[+70]';*/
+        font-family: "navigo", sans-serif;
+        font-weight: 400;
+        font-style: normal;
         font-size: 15px;
         text-align: center;
-        color: #111;
+        color: #000000;
         padding: 20px 0;
     }
 
     /* ── Tablet & phone ── */
     @media (max-width: 768px) {
+
+        nav {
+            top: 10px;
+            right: 10px;
+        }
+
+        nav ul li {
+            margin: 4px 0;
+        }
+
+        nav ul li a {
+            font-size: 13px;
+        }
 
         .sticky-note {
             width: 195px;
@@ -769,18 +892,51 @@ font-style: italic;
     }
 
     .link {
-        color: #111;
-        text-decoration: wavy underline #111 2px;
-        text-underline-offset: 5px;
+        color: #000000;
+        /* text-decoration: wavy underline #000000 2px;
+        text-underline-offset: 5px;*/
+        font-family: 'ExposureItalicTrial[-50]';
+        font-family: 'stefan', sans-serif;
+        font-style: Italic;
 
         background: #FBF719;
         background: #f5e642;
         padding: 0 10px;
     }
+
+    .link:hover {
+        color: #000000;
+        /*text-decoration:line-through 2px #000000;*/
+
+        transition: color 0.3s ease;
+        text-decoration: 3px line-through;
+    }
+
+    .emphasis {
+        font-family: "degular-mono", sans-serif;
+        margin-top: 20px;
+
+        /*line-height: 35px;*/
+
+        line-height: 15px;
+        text-align: left;
+        max-width: 800px;
+
+        font-weight: 300;
+        font-weight: 400;
+        font-style: italic;
+        /*font-size: 18px;*/
+        font-size: 27px;
+        font-size: 18px;
+        color: #000000;
+    }
 </style>
 
 <body class="dashed-grid-paper">
     <canvas id="drawing-canvas"></canvas>
+    <div class="topnav">
+        <a href="index.html"><img src="images/GABEEE_logo.png" alt="Logo" class="logo"></a>
+    </div>
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -834,17 +990,15 @@ font-style: italic;
 
     <div class="marquee-wrapper">
         <p>Scroll down to read selected work
-            &emsp; &emsp; &emsp; &emsp;
+            &emsp; &emsp;
             Scroll down to read selected work
-            &emsp; &emsp; &emsp; &emsp;
-            Scroll down to read selected work
-            &emsp; &emsp; &emsp; &emsp;
+            &emsp; &emsp;
             Scroll down to read selected work
         </p>
 
     </div>
 
-     <button class="collapsible">
+    <button class="collapsible">
         <div class="list-wrapper">
             <p list-title><a href="Story6.html">The Way Nature Works
                 </a></p>
@@ -852,14 +1006,14 @@ font-style: italic;
         </div>
     </button>
     <div class="content">
-        <p>
+        <div class="emphasis">
             This poem reflects a time in my teenage years when I struggled with significant anxiety and depression.
-            Ultimately, it is a poem about hardship, resilience, and renewal. 
+            Ultimately, it is a poem about hardship, resilience, and renewal.
             <br><br>
             Originally written in high school in 2013,
             it has recently been revisited and edited, with some of the language updated while preserving its original
             tone and style.
-        </p>
+        </div>
         <p class="read-more"><a href="Story6.html">Read more</a></p>
     </div>
     <div class="linebar"></div>
@@ -872,12 +1026,12 @@ font-style: italic;
         </div>
     </button>
     <div class="content">
-        <p>
+        <div class="emphasis">
             An interaction between a deli cook and transplant, woke, vegan customer who’s ordering a staple NYC sandwich
             but slowly requests to omit all key ingredients.
             <br><br>
             Is it still a New York experience to order a sandwich with no meat, no egg, no cheese, no bread?
-        </p>
+        </div>
         <p class="read-more"><a href="Story5.html">Read more</a></p>
     </div>
     <div class="linebar"></div>
@@ -891,12 +1045,12 @@ font-style: italic;
         </div>
     </button>
     <div class="content">
-        <p>
+        <div class="emphasis">
             Seattle artist, Margot Demarco, is a master of the art of silliness and scrappiness. Her work is a
             delightful blend of humor, creativity, and a touch of irreverence. With a keen eye for the absurd and a
             knack for finding beauty in the unconventional, Demarco's art invites viewers to embrace their playful side
             and find joy in the unexpected.
-        </p>
+        </div>
         <p class="read-more"><a href="Story4.html">Read more</a></p>
     </div>
 
@@ -909,12 +1063,12 @@ font-style: italic;
         </div>
     </button>
     <div class="content">
-        <p>
+        <div class="emphasis">
             <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
             ex ea commodo consequat.-->
             A short story about my childhood rubber duckie, and its sudden disappearance entering adulthood.
-        </p>
+        </div>
         <p class="read-more"><a href="Story1.html">Read more</a></p>
     </div>
     <div class="linebar"></div>
@@ -926,13 +1080,13 @@ font-style: italic;
         </div>
     </button>
     <div class="content">
-        <p>
+        <div class="emphasis">
             <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
             ex ea commodo consequat.-->
             An essay about New York City's most common neighbor: the rat, and how the city has developed a complex
             relationship with this resilient creature.
-        </p>
+        </div>
         <p class="read-more"><a href="Story2.html">Read more</a></p>
     </div>
     <div class="linebar"></div>
@@ -944,12 +1098,12 @@ font-style: italic;
         </div>
     </button>
     <div class="content">
-        <p>
+        <div class="emphasis">
             <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
             ex ea commodo consequat.-->
             An essay about a yellow letter, an object of personal significance.
-        </p>
+        </div>
         <p class="read-more"><a href="Story3.html">Read more</a></p>
     </div>
     <div class="linebar"></div>
