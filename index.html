@@ -72,6 +72,8 @@
         margin-top: 55px;
         position: absolute;
         background-color: #f5e642;
+        /*background-color: #E6E6E6;
+        background-color: #F5F5DC;*/
         padding: 20px 22px;
         width: 300px;
         height: 300px;
@@ -117,13 +119,26 @@
         font-size: 24px;
     }
 
-    .topnav {
+   /* .topnav {
         z-index: 10;
         position: relative;
         position: fixed;
         width: 100%;
         padding: 20px 0;
+    }*/
+
+    .topnav {
+        z-index: 10;
+        position: fixed;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
     }
+
 
     .logo {
         display: block;
@@ -178,6 +193,7 @@
 
     nav ul li a {
         background: #f5e642;
+        background-color: #FBF719;
         padding: 3px 10px;
         display: inline-block;
         text-decoration: none;
@@ -576,6 +592,7 @@ font-style: normal;*/
 
     [list-title] a {
         background: linear-gradient(#f5e642, #f5e642) no-repeat left center;
+        background: linear-gradient(#FBF719, #FBF719) no-repeat left center;
         background-size: 0% 55%;
         transition: background-size 0.35s ease;
         padding: 20px 10px;
@@ -643,6 +660,7 @@ font-style: normal;*/
         font-style: normal;
         font-style: italic;
         background: #f5e642;
+        background: #FBF719;
         padding: 0 10px;
     }
 
@@ -900,7 +918,7 @@ font-style: normal;*/
         font-style: Italic;
 
         background: #FBF719;
-        background: #f5e642;
+        /*background: #f5e642;*/
         padding: 0 10px;
     }
 

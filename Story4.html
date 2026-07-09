@@ -114,10 +114,15 @@
 
     .topnav {
         z-index: 10;
-        position: relative;
         position: fixed;
-        width: 100%;
+        top: 20px;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
         padding: 20px 0;
+        display: flex;
+        justify-content: center;
     }
 
     .logo {
@@ -173,6 +178,7 @@
 
     nav ul li a {
         background: #f5e642;
+        background: #FBF719;
         padding: 3px 10px;
         display: inline-block;
         text-decoration: none;
@@ -254,8 +260,20 @@
     }
 
     .highlight {
-        background: #f5e642;
+        /*background: #f5e642;
+        background: #FBF719;*/
         padding: 0 10px;
+        font-style: italic;
+    }
+    .highlight-small {
+       /* background: #f5e642;
+        background: #FBF719;*/
+        padding: 0 10px;
+        font-size: 22px;
+        font-family: "navigo", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: underline;
     }
 
 
@@ -726,6 +744,7 @@ font-style: italic;
         text-underline-offset: 5px;*/
         text-decoration: none;
         background: #f5e642;
+        background: #FBF719;
         padding: 0 10px;
     }
 
@@ -745,9 +764,11 @@ font-style: italic;
     </nav>
 
     <div class="title-info">
-        <p list-title><span class="highlight">Margot Demarco —</span>
+        <p list-title><span class="highlight">Margot Demarco</span>
             <br>
-           <span class="highlight">Master of the Art of <br> Silliness & Scrappiness</span>
+           <span class="highlight-small"> Master of the Art of </span> 
+           <br>
+          <span class="highlight">Silliness & Scrappiness</span>
         </p>
         <p list-date>June 10, 2026</p>
     </div>
