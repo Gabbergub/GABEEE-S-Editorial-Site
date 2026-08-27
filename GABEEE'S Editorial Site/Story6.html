@@ -12,7 +12,6 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.typekit.net/kxz4hwz.css">
-    <link rel="stylesheet" href="https://use.typekit.net/kxz4hwz.css">
 </head>
 <style>
     body {
@@ -50,12 +49,11 @@
         font-size: 24px;
         font-size: 15px;
         line-height: 1.6;
-        
-        color: #000000;
+        color: #111;
     }
 
     .center-wrapper {
-        min-height: calc(100vh - 60px);
+        /* min-height: calc(100vh - 60px);*/
         display: flex;
         justify-content: center;
         align-items: center;
@@ -66,16 +64,17 @@
         /*font-family: "degular-mono", sans-serif;
         font-weight: 400;
         font-style: normal;*/
-        text-align: left; max-width: 800px;
+        text-align: left;
+        max-width: 800px;
 
         font-family: "navigo", sans-serif;
-        
+
         font-weight: 400;
-        
+
         font-style: normal;
         font-size: 24px;
         font-size: 18px;
-        
+
         width: min(800px, calc(100% - 80px));
         margin: 0 auto;
         box-sizing: border-box;
@@ -205,6 +204,25 @@
         margin-top: 6px;
     }
 
+    /* .dashed-grid-paper {
+
+        --grid-size: 30px;
+        --grid-strength: 1px;
+        --grid-dash: 10px;
+        --grid-gap: 5px;
+        --grid-color: #ddd;
+        --paper-color: #fff;
+
+        background-color: var(--paper-color);
+        background-size: var(--grid-dash) var(--grid-dash), var(--grid-size) var(--grid-size);
+        background-image:
+            linear-gradient(to bottom, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+            linear-gradient(to right, var(--grid-color) var(--grid-strength), transparent var(--grid-strength)),
+            linear-gradient(to right, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+            linear-gradient(to bottom, var(--grid-color) var(--grid-strength), transparent var(--grid-strength));
+        background-attachment: fixed;
+    }*/
+
     .list-wrapper {
         /* border-bottom: #333 1.5px solid;*/
         display: flex;
@@ -230,11 +248,11 @@
     }
 
     .highlight {
-        /*background: #f5e642;
-        background: #FBF719;*/
+        background: #f5e642;
+        background: #FBF719;
         padding: 0 10px;
-        font-style: italic;
     }
+
     .highlight-small {
        /* background: #f5e642;
         background: #FBF719;*/
@@ -262,7 +280,7 @@
         flex: 1;
         text-align: left;
         color: #000000;
-       /* text-decoration: wavy underline #000000 2px;
+        /* text-decoration: wavy underline #000000 2px;
         text-underline-offset: 5px;*/
     }
 
@@ -272,7 +290,6 @@
         font-weight: normal;
         font-style: normal;
     }
-
 
 
     @font-face {
@@ -509,7 +526,7 @@ font-style: italic;
         border-top: 2.5px dashed #000000;
         padding: 10px 0;
         /* optional: add space between borders and content */
-         margin: 30px auto;
+        margin: 30px auto;
         /*margin: 30px 30px;*/
         max-width: 800px;
         align-items: center;
@@ -583,7 +600,7 @@ font-style: italic;
 
     .contact-list a {
         text-decoration: none;
-        color: #000000;
+        color: #111;
 
     }
 
@@ -604,18 +621,18 @@ font-style: italic;
         text-align: center;
         color: #000000;
         padding: 20px 0;
-        
+
     }
 
     .emphasis {
         font-family: "degular-mono", sans-serif;
-        
+
         /*line-height: 35px;*/
-        
+
         line-height: 15px;
-        text-align: left; 
+        text-align: left;
         max-width: 800px;
-       
+
         font-weight: 300;
         font-weight: 400;
         font-style: italic;
@@ -625,17 +642,17 @@ font-style: italic;
         color: #000000;
     }
 
-     /* html {
+    /* html {
         background-color: #8e99a8;
         background-color: #bbd6fb;
     }*/
-   
-     /* --- Folded corner / next story --- */
+
+    /* --- Folded corner / next story --- */
     footer {
         padding-bottom: 1px;
         position: relative;
-        background:#8e99a8;
-        background:#bbd6fb;
+        background: #8e99a8;
+        background: #bbd6fb;
     }
 
     .fold-area {
@@ -650,7 +667,7 @@ font-style: italic;
         position: relative;
         width: 120px;
         height: 120px;
-       /* filter: drop-shadow(-3px -3px 6px rgba(0, 0, 0, 0.22));
+        /* filter: drop-shadow(-3px -3px 6px rgba(0, 0, 0, 0.22));
         filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.22));*/
     }
 
@@ -661,8 +678,7 @@ font-style: italic;
         background: linear-gradient(to bottom right, #f5f8fe 50%, #bbd6fb 50%);
     }
 
-
-      /* Link on the gray triangle */
+    /* Link on the gray triangle */
     .next-story-link {
         position: absolute;
         bottom: 10px;
@@ -685,7 +701,7 @@ font-style: italic;
     .next-story-link:hover {
         font-family: 'ExposureItalicTrial[+30]';
         font-family: "stefan", sans-serif;
-        font-style:italic;
+        font-style: italic;
         transition: color 0.3s ease;
         text-decoration: 3px line-through;
     }
@@ -695,10 +711,10 @@ font-style: italic;
         width: fit-content;
         margin: 0 auto;
         text-align: center;
-       /* font-family: "degular-mono", sans-serif;
+        /* font-family: "degular-mono", sans-serif;
         font-size: 24px;
         font-size: 15px;*/
-        
+
         font-family: "stefan", sans-serif;
         font-weight: 400;
         font-style: normal;
@@ -727,126 +743,54 @@ font-style: italic;
     </nav>
 
     <div class="title-info">
-        <p list-title><span class="highlight">Bodega: Deli Meat 
-            <br>
-            <span class="highlight-small">Dialogue Script</span>
+        <p list-title><span class="highlight">I Design (...)</span>
+        <br>
+            <span class="highlight-small">Manifesto</span>
         </p>
-        <p list-date>June 11, 2026</p>
+        <p list-date>Aug 26, 2026</p>
     </div>
 
     <div class="linebar"></div>
 
-
     <div class="center-wrapper">
-        <div class="center-text">
+        <div class="center-text" style="text-align: left; max-width: 800px;">
             <div class="emphasis">
-                Story Brief:
-                <br>
-                An interaction between a deli cook and transplant, woke, vegan customer who’s ordering a staple NYC
-                sandwich
-                but slowly requests to omit all key ingredients.
-                <br>Is it still a New York experience to order a sandwich with no meat, no egg, no cheese, no bread?
-                <br><br>
-                <video id="media-thumb" loop playsinline controls
-                    style="display:block; max-width:800px; width:100%; margin:0 auto; /*padding: 30px;*/ box-sizing:border-box;">
-                    <source class="banner_animation" src="Deli_Meat.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <br><br>
-                Scene:
-                <br>
-                Door opens, bell hanging above the door rings. Enter Customer. Customer walks past through the only
-                aisle at the center of the entrance. The Customer walks up to the deli cook to place an order. Deli Cook
-                turns around from the grill and looks at the Customer.
+                When writing this manifesto, I wanted something personable and fluid—something I can look back on and
+                still find relevant.
 
+                The manifesto's structure is designed to be revised over time, as suggested by the parentheses, adding new meanings
+                of what design means to me. With an ever-evolving world, ideas change, habits change, and ways of
+                approaching design will have to adapt. 
             </div>
+            <br>
+            I design (…)
             <br><br>
+            I design (with purpose). Without purpose, the creative drive can run dry. I begin with a goal in mind while
+            remaining open to all possibilities—failure or success—and expect the unexpected.
             <br><br>
-            (Scene Begins)
+            I design (to make a difference). Rather than focusing solely on aesthetics, I design to foster connection,
+            spark curiosity, and encourage change, hoping to make even the smallest difference.
             <br><br>
-            DELI COOK: Next! Whatchu want
+            I design (to create). I believe design can open opportunities for people to explore ideas, challenge
+            conventions, and see the world from new perspectives.
             <br><br>
-            CUSTOMER: Hi! Uh. Can I get a bacon, egg, and cheese?
+            I design (because I have to). Design is intertwined with my existence; it runs through my veins. Ideas are
+            constantly circulating in my head, and while not every one comes to fruition, the act of designing gives
+            them a place to exist. If not now, then when?
             <br><br>
-            DELI COOK: Sure. Whatchu want Salt, pepper, ketchup?
+            I design (to remember). Every project carries a piece of me—a collection of my thoughts, experiences, and
+            being. Through design, I preserve those pieces and find a sense of peace in giving them form.
             <br><br>
-            CUSTOMER: Oh, uh actually, can I make a few changes?
-            <br><br>
-            DELI COOK: (already annoyed) Sure.
-            <br><br>
-            CUSTOMER: Can I get it without bacon?
-            <br><br>
-            DELI COOK: So... egg and cheese.
-            <br><br>
-            CUSTOMER: uh, Yeah.
-            <br><br>
-            DELI COOK: Okay.
-            <br><br>
-            CUSTOMER: Oh! Also, no egg.
-            <br><br>
-            DELI COOK: Then it's just cheese.
-            <br><br>
-            CUSTOMER: Yes.
-            <br><br>
-            DELI COOK: Just cheese?
-            <br><br>
-            CUSTOMER: Well, I'm sorta vegan.
-            <br><br>
-            DELI COOK: Sorta vegan?
-            <br><br>
-            CUSTOMER: Vegan.
-            <br><br>
-            DELI COOK: Uh-huh. (Stares blankly at customer)
-            <br><br>
-            CUSTOMER: Yeah. So no cheese either.
-            <br><br>
-            DELI COOK: So you want...
-            <br><br>
-            (pauses and stares blankly)
-            <br><br>
-            Bread.
-            <br><br>
-            CUSTOMER: Mhmm.
-            <br><br>
-            DELI COOK: You came into a deli for just bread.
-            <br><br>
-            CUSTOMER: It's not just bread. It's a New York experience.
-            <br><br>
-            DELI COOK: (stares blankly at the customer)
-            <br><br>
-            CUSTOMER: Can you toast it?
-            <br><br>
-            DELI COOK: Sure.
-            <br><br>
-            CUSTOMER: Actually, don’t toast it.
-            <br><br>
-            DELI COOK: So not toasted.
-            <br><br>
-            CUSTOMER: Correct.
-            <br><br>
-            DELI COOK: Just bread coming up.
-            <br><br>
-            CUSTOMER: Oh! Uhm, Is the bread gluten-free?
-            <br><br>
-            DELI COOK: No.
-            <br><br>
-            CUSTOMER: Then no bread.
-            <br><br>
-            DELI COOK: (stares at customer)
-            <br><br>
-            CUSTOMER: (Stares back)
-            <br><br>
-            DELI COOK: Next!
-            <br><br>
-            (END SCENE)
+            To design is to give purpose to ideas, create meaningful change, open new possibilities, express what must
+            be expressed, and preserve what should be remembered. Every idea has value, and design gives those ideas the
+            power to take shape and leave a mark. I design (because I can).
         </div>
-
     </div>
     <br><br>
     <br><br>
     <br><br>
     <br><br>
-    <a href="Story6.html" class="before-page">Previous Page <!-- → --></a>
+    <a href="Story1.html" class="before-page">Previous Page <!-- &rarr; --></a>
 
     <br><br>
 
@@ -854,12 +798,7 @@ font-style: italic;
         <p>Scroll down to see work
             &emsp; &emsp; &emsp; &emsp;
             Scroll down to see work
-            &emsp; &emsp; &emsp; &emsp;
-            Scroll down to see work
-            &emsp; &emsp; &emsp; &emsp;
-            Scroll down to see work
         </p>
-
     </div>
     <div class="linebar"></div>-->
 
@@ -868,7 +807,7 @@ font-style: italic;
         <div class="fold-area">
             <div class="fold-wrapper">
                 <div class="fold-corner"></div>
-                <a href="Story4.html" class="next-story-link">Next Page <!-- → --></a>
+                <a href="Story5.html" class="next-story-link">Next Page <!-- &rarr; --></a>
             </div>
         </div>
         <p class="footer-text">© 2026 Gabe Marroquin</p>
@@ -876,14 +815,6 @@ font-style: italic;
 
 
     <!---- <div class="list-wrapper">
-        <p list-title> Article or Story Title</p>
-        <p list-date> List Date</p>
-    </div>
-    <div class="list-wrapper">
-        <p list-title> Article or Story Title</p>
-        <p list-date> List Date</p>
-    </div>
-    <div class="list-wrapper">
         <p list-title> Article or Story Title</p>
         <p list-date> List Date</p>
     </div>

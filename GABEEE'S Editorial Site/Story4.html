@@ -15,6 +15,7 @@
 </head>
 <style>
     body {
+        background-color: #ebf1fe;
         margin: 0;
         padding: 0;
         min-height: 100vh;
@@ -48,7 +49,8 @@
         font-size: 24px;
         font-size: 15px;
         line-height: 1.6;
-        color: #333;
+        
+        color: #000000;
     }
 
     .center-wrapper {
@@ -59,49 +61,136 @@
         flex-direction: column;
     }
 
-    .center-text {
-        /*font-family: 'ExposureTrial[+70]';
-        font-family: 'ExposureTrial[+30]', serif;*/
+    /*.center-text {
         font-family: "degular-mono", sans-serif;
         font-weight: 400;
         font-style: normal;
         font-size: 18px;
+        width: min(800px, calc(100% - 80px));
+        margin: 0 auto;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+    }*/
+
+    .center-text {
+        /*font-family: "degular-mono", sans-serif;
+        font-weight: 400;
+        font-style: normal;*/
+        text-align: left; max-width: 800px;
+
+        font-family: "navigo", sans-serif;
+        
+        font-weight: 400;
+        
+        font-style: normal;
+        font-size: 24px;
+        font-size: 18px;
+        
+        width: min(800px, calc(100% - 80px));
+        margin: 0 auto;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+    }
+
+
+    @media (max-width: 768px) {
+        .center-text {
+            width: calc(100% - 40px);
+        }
+
+        nav {
+            top: 10px;
+            right: 10px;
+        }
+
+        nav ul li {
+            margin: 4px 0;
+        }
+
+        nav ul li a {
+            font-size: 13px;
+        }
+    }
+
+    .topnav {
+        z-index: 10;
+        position: fixed;
+        top: 20px;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo {
+        display: block;
+        margin: 0 auto;
+        max-height: 60px;
+        max-height: 80px;
+        width: auto;
     }
 
     nav {
-        width: 100%;
         background: transparent;
         /*box-shadow: 0 2px 4px rgba(0,0,0,0.03);*/
         padding: 10px 0;
-        position: sticky;
-        top: 70px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: auto;
         z-index: 10;
         font-family: 'ExposureTrial[-90]';
+        /* font-family: 'ExposureItalicTrial[-50]', serif; */
+        font-family: "navigo", sans-serif;
+        font-family: "degular-mono", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: lowercase;
     }
 
     nav ul {
         list-style: none;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: flex-end;
         margin: 0;
         padding: 0;
     }
 
     nav ul li {
-        margin: 0 15px;
+        margin: 8px 0;
+    }
+
+    nav ul li:nth-child(1) {
+        transform: rotate(-4deg);
+    }
+
+    nav ul li:nth-child(2) {
+        transform: rotate(3deg);
+    }
+
+    nav ul li:nth-child(3) {
+        transform: rotate(-2.5deg);
     }
 
     nav ul li a {
+        background: #f5e642;
+        background: #FBF719;
+        padding: 3px 10px;
+        display: inline-block;
         text-decoration: none;
-        color: #333;
+        color: #000000;
         font-weight: bold;
         transition: color 0.3s ease;
     }
 
     nav ul li a:hover {
-         /* color: #007BFF; */
+        /* color: #007BFF; */
         transition: color 0.3s ease;
-        text-decoration: 3px line-through solid #333;
+        text-decoration: 3px line-through solid #000000;
     }
 
     .title-info {
@@ -162,11 +251,29 @@
         font-family: 'ExposureItalicTrial[-70]', serif;
         font-family: 'ExposureItalicTrial[-50]', serif;
         /*font-size: 24px;*/
+
+        font-family: "stefan", sans-serif;
         font-size: 27px;
+        font-size: 36px;
         flex: 1;
         text-align: left;
+    }
 
-
+    .highlight {
+        /*background: #f5e642;
+        background: #FBF719;*/
+        padding: 0 10px;
+        font-style: italic;
+    }
+    .highlight-small {
+       /* background: #f5e642;
+        background: #FBF719;*/
+        padding: 0 10px;
+        font-size: 22px;
+        font-family: "navigo", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: underline;
     }
 
 
@@ -175,49 +282,25 @@
         font-family: 'ExposureItalicTrial[-70]', serif;
         font-family: 'ExposureItalicTrial[-50]', serif;
         /*font-size: 18px;*/
+        font-family: "degular-mono", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: uppercase;
         font-size: 15px;
 
         flex: 1;
         text-align: left;
-        color: #111;
-
+        color: #000000;
+       /* text-decoration: wavy underline #000000 2px;
+        text-underline-offset: 5px;*/
     }
 
-    .marquee-wrapper {
-        margin-top: 20px;
-        /*box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
-            border: 1px solid rgba(0, 0, 0, .15);
-            background-color: #ffffff;*/
-        height: 50px;
-        overflow: hidden;
-        position: relative;
-        border-top: #333 1.5px solid;
-        border-bottom: #333 1.5px solid;
-        /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
-        /* Adding a subtle shadow */
-    }
 
-    .marquee-wrapper p {
-        font-family: 'ExposureItalicTrial[-70]', serif;
-        font-size: 24px;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        line-height: 50px;
-        text-align: center;
-        transform: translateX(50%);
-        animation: bouncing-text 10s ease-in-out infinite alternate;
-    }
-
-    @keyframes bouncing-text {
-        0% {
-            transform: translateX(50%);
-        }
-
-        100% {
-            transform: translateX(-50%);
-        }
+    @font-face {
+        font-family: 'Stefan';
+        src: url('ABC Stefan Edu/ABCStefanEdu-Simple.woff2') format('woff');
+        font-weight: normal;
+        font-style: normal;
     }
 
 
@@ -443,12 +526,23 @@ font-style: italic;
 
     }
 
-    .linebar {
+    /*.linebar {
         width: 100%;
         height: 1.5px;
-        background-color: #333;
+        background-color: #111;
         margin: -10px 0;
-        /*border-bottom: #333 1.5px solid;*/
+        /*border-bottom: #333 1.5px solid;
+    }*/
+
+     .linebar {
+        border-top: 2.5px dashed #000000;
+        padding: 10px 0;
+        /* optional: add space between borders and content */
+         margin: 30px auto;
+        /*margin: 30px 30px;*/
+        max-width: 800px;
+        align-items: center;
+        /* margin: -10px 0;*/
     }
 
     p a {
@@ -529,45 +623,163 @@ font-style: italic;
     }
 
     .footer-text {
-        border-top: 2px solid #333;
-        font-family: 'ExposureTrial[-90]', serif;
-        font-family: 'ExposureTrial[+70]';
+        /*border-top: 2px solid #000000;*/
+        font-family: 'ExposureTrial[-50]', serif;
+        /*.about-wrapper: 'ExposureTrial[+70]';*/
+        font-family: "navigo", sans-serif;
+        font-weight: 400;
+        font-style: normal;
         font-size: 15px;
         text-align: center;
-        color: #111;
+        color: #000000;
         padding: 20px 0;
+        
     }
-    .emphasis {
+    /*.emphasis {
         font-family: 'ExposureTrial[+30]', serif;
         font-family: "degular-mono", sans-serif;
         font-weight: 400;
         font-style: normal;
-        /*font-size: 18px;*/
         font-size: 27px;
         color: #111;
+    }*/
+
+    .emphasis {
+        font-family: "degular-mono", sans-serif;
+        
+        /*line-height: 35px;*/
+        
+        line-height: 15px;
+        text-align: left; 
+        max-width: 800px;
+       
+        font-weight: 300;
+        font-weight: 400;
+        font-style: italic;
+        /*font-size: 18px;*/
+        font-size: 27px;
+        font-size: 18px;
+        color: #000000;
     }
+
+    /* html {
+        background-color: #8e99a8;
+        background-color: #bbd6fb;
+    }*/
+   
+     /* --- Folded corner / next story --- */
+    footer {
+        padding-bottom: 1px;
+        position: relative;
+        background:#8e99a8;
+        background:#bbd6fb;
+    }
+
+    .fold-area {
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        /* bottom of fold = top of footer border */
+        z-index: 5;
+    }
+
+    .fold-wrapper {
+        position: relative;
+        width: 120px;
+        height: 120px;
+       /* filter: drop-shadow(-3px -3px 6px rgba(0, 0, 0, 0.22));
+        filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.22));*/
+    }
+
+    .fold-corner {
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(to bottom right, #ebf1fe 50%, #8e99a8 50%);
+        background: linear-gradient(to bottom right, #f5f8fe 50%, #bbd6fb 50%);
+    }
+
+    /* Link on the gray triangle */
+    .next-story-link {
+        position: absolute;
+        bottom: 10px;
+        right: 12px;
+        font-family: "degular-mono", sans-serif;
+
+        font-family: "navigo", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 15px;
+        /*font-size: 24px;*/
+        line-height: 1.5;
+        color: #eef0f4;
+        color: #000000;
+        text-decoration: none;
+        text-align: right;
+        z-index: 4;
+    }
+
+    .next-story-link:hover {
+        font-family: 'ExposureItalicTrial[+30]';
+        font-family: "stefan", sans-serif;
+        font-style:italic;
+        transition: color 0.3s ease;
+        text-decoration: 3px line-through;
+    }
+
+    .before-page {
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+        text-align: center;
+       /* font-family: "degular-mono", sans-serif;
+        font-size: 24px;
+        font-size: 15px;*/
+        
+        font-family: "stefan", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 18px;
+        color: #000000;
+        /*text-decoration: wavy underline #111 2px;
+        text-underline-offset: 5px;*/
+        text-decoration: none;
+        background: #f5e642;
+        background: #FBF719;
+        padding: 0 10px;
+    }
+
 </style>
 
 <body class="dashed-grid-paper">
     <canvas id="drawing-canvas"></canvas>
+    <div class="topnav">
+        <a href="index.html"><img src="images/GABEEE_logo.png" alt="Logo" class="logo"></a>
+    </div>
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#about-wrapper">About</a></li>
-            <li><a href="#contact-wrapper">Contact</a></li>
+            <li><a href="index.html#about-wrapper">About</a></li>
+            <li><a href="index.html#contact-wrapper">Contact</a></li>
         </ul>
     </nav>
 
     <div class="title-info">
-        <p list-title> Margot Demarco: Master of the Art of Silliness & Scrappiness</p>
+        <p list-title><span class="highlight">Margot Demarco</span>
+            <br>
+           <span class="highlight-small"> Master of the Art of </span> 
+           <br>
+          <span class="highlight">Silliness & Scrappiness</span>
+        </p>
         <p list-date>June 10, 2026</p>
     </div>
 
+    <div class="linebar"></div>
+
     <div class="center-wrapper">
-        <p class="center-text" style="text-align: left; max-width: 800px;">
-          <span class="emphasis">Margot Demarco is a Seattle-raised artist now based and building her craft in the heart of New York City.
+        <div class="center-text" style="text-align: left; max-width: 800px;">
+          <div class="emphasis">Margot Demarco is a Seattle-raised artist now based and building her craft in the heart of New York City.
             Her childhood was filled with the arts and community events such as parades. The 40-year-old artist
-            continues to grow her craft at her Long Island City studio–I was lucky to get some insight.</span>
+            continues to grow her craft at her Long Island City studio–I was lucky to get some insight.</div>
             <br><br>
             A hot summer Monday morning was spent within Margot’s creative space. Welcomed at the entrance of her studio
             building, we spent a moment in casual chatter. A transition was then made through the building up to her
@@ -622,40 +834,38 @@ font-style: italic;
             Her work very much embodies a solution to a problem, filling cracks with the gold of silliness and
             scrappiness. Leaving her studio, I felt inspired and driven to create my own solutions to the world's
             problems around me.
-        </p>
+        </div>
 
     </div>
     <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <a href="Story5.html" class="before-page">Previous Page <!-- &rarr; --></a>
+
     <br><br>
 
     <!---  <div class="marquee-wrapper">
         <p>Scroll down to see work
             &emsp; &emsp; &emsp; &emsp;
             Scroll down to see work
-            &emsp; &emsp; &emsp; &emsp;
-            Scroll down to see work
-            &emsp; &emsp; &emsp; &emsp;
-            Scroll down to see work
         </p>
-
     </div>
     <div class="linebar"></div>-->
 
 
     <footer>
+        <div class="fold-area">
+            <div class="fold-wrapper">
+                <div class="fold-corner"></div>
+                <a href="Story1.html" class="next-story-link">Next Page <!-- &rarr; --></a>
+            </div>
+        </div>
         <p class="footer-text">© 2026 Gabe Marroquin</p>
     </footer>
 
 
     <!---- <div class="list-wrapper">
-        <p list-title> Article or Story Title</p>
-        <p list-date> List Date</p>
-    </div>
-    <div class="list-wrapper">
-        <p list-title> Article or Story Title</p>
-        <p list-date> List Date</p>
-    </div>
-    <div class="list-wrapper">
         <p list-title> Article or Story Title</p>
         <p list-date> List Date</p>
     </div>
