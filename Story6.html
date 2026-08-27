@@ -49,11 +49,11 @@
         font-size: 24px;
         font-size: 15px;
         line-height: 1.6;
-        color: #000000;
+        color: #111;
     }
 
     .center-wrapper {
-        min-height: calc(100vh - 60px);
+        /* min-height: calc(100vh - 60px);*/
         display: flex;
         justify-content: center;
         align-items: center;
@@ -64,14 +64,17 @@
         /*font-family: "degular-mono", sans-serif;
         font-weight: 400;
         font-style: normal;*/
-        align-items: center;
-        justify-content: center;
+        text-align: left;
+        max-width: 800px;
 
         font-family: "navigo", sans-serif;
-        font-weight: 400;
-        font-style: normal;
 
+        font-weight: 400;
+
+        font-style: normal;
+        font-size: 24px;
         font-size: 18px;
+
         width: min(800px, calc(100% - 80px));
         margin: 0 auto;
         box-sizing: border-box;
@@ -201,6 +204,25 @@
         margin-top: 6px;
     }
 
+    /* .dashed-grid-paper {
+
+        --grid-size: 30px;
+        --grid-strength: 1px;
+        --grid-dash: 10px;
+        --grid-gap: 5px;
+        --grid-color: #ddd;
+        --paper-color: #fff;
+
+        background-color: var(--paper-color);
+        background-size: var(--grid-dash) var(--grid-dash), var(--grid-size) var(--grid-size);
+        background-image:
+            linear-gradient(to bottom, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+            linear-gradient(to right, var(--grid-color) var(--grid-strength), transparent var(--grid-strength)),
+            linear-gradient(to right, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+            linear-gradient(to bottom, var(--grid-color) var(--grid-strength), transparent var(--grid-strength));
+        background-attachment: fixed;
+    }*/
+
     .list-wrapper {
         /* border-bottom: #333 1.5px solid;*/
         display: flex;
@@ -225,12 +247,12 @@
         text-align: left;
     }
 
-     .highlight {
-        /*background: #f5e642;
-        background: #FBF719;*/
+    .highlight {
+        background: #f5e642;
+        background: #FBF719;
         padding: 0 10px;
-        font-style: italic;
     }
+
     .highlight-small {
        /* background: #f5e642;
         background: #FBF719;*/
@@ -258,11 +280,9 @@
         flex: 1;
         text-align: left;
         color: #000000;
-       /* text-decoration: wavy underline #000000 2px;
+        /* text-decoration: wavy underline #000000 2px;
         text-underline-offset: 5px;*/
-
     }
-
 
     @font-face {
         font-family: 'Stefan';
@@ -272,18 +292,10 @@
     }
 
 
-
     @font-face {
         font-family: 'ExposureItalicTrial[-50]';
         /* The name you'll use in your CSS */
         src: url('205TF_Exposure/ExposureItalicTrial[-50].otf') format('opentype'), ;
-        font-weight: normal;
-        font-style: normal;
-    }
-     @font-face {
-        font-family: 'ExposureTrial[-50]';
-        /* The name you'll use in your CSS */
-        src: url('205TF_Exposure/ExposureTrial[-50].otf') format('opentype'), ;
         font-weight: normal;
         font-style: normal;
     }
@@ -514,7 +526,7 @@ font-style: italic;
         border-top: 2.5px dashed #000000;
         padding: 10px 0;
         /* optional: add space between borders and content */
-         margin: 30px auto;
+        margin: 30px auto;
         /*margin: 30px 30px;*/
         max-width: 800px;
         align-items: center;
@@ -523,7 +535,7 @@ font-style: italic;
 
     p a {
         color: #007BFF;
-        color: #000000;
+        color: #111;
         text-decoration: none;
         font-family: 'ExposureItalicTrial[-70]';
     }
@@ -569,7 +581,7 @@ font-style: italic;
         margin-right: 5%;
         flex: 1;
         text-align: left;
-        color: #000000;
+        color: #111;
 
     }
 
@@ -588,7 +600,7 @@ font-style: italic;
 
     .contact-list a {
         text-decoration: none;
-        color: #000000;
+        color: #111;
 
     }
 
@@ -609,20 +621,28 @@ font-style: italic;
         text-align: center;
         color: #000000;
         padding: 20px 0;
-        
+
     }
 
     .emphasis {
-        font-family: 'ExposureTrial[+30]', serif;
         font-family: "degular-mono", sans-serif;
+
+        /*line-height: 35px;*/
+
+        line-height: 15px;
+        text-align: left;
+        max-width: 800px;
+
+        font-weight: 300;
         font-weight: 400;
-        font-style: normal;
+        font-style: italic;
         /*font-size: 18px;*/
         font-size: 27px;
+        font-size: 18px;
         color: #000000;
     }
 
-   /* html {
+    /* html {
         background-color: #8e99a8;
         background-color: #bbd6fb;
     }*/
@@ -631,8 +651,8 @@ font-style: italic;
     footer {
         padding-bottom: 1px;
         position: relative;
-        background:#8e99a8;
-        background:#bbd6fb;
+        background: #8e99a8;
+        background: #bbd6fb;
     }
 
     .fold-area {
@@ -647,7 +667,7 @@ font-style: italic;
         position: relative;
         width: 120px;
         height: 120px;
-       /* filter: drop-shadow(-3px -3px 6px rgba(0, 0, 0, 0.22));
+        /* filter: drop-shadow(-3px -3px 6px rgba(0, 0, 0, 0.22));
         filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.22));*/
     }
 
@@ -681,7 +701,7 @@ font-style: italic;
     .next-story-link:hover {
         font-family: 'ExposureItalicTrial[+30]';
         font-family: "stefan", sans-serif;
-        font-style:italic;
+        font-style: italic;
         transition: color 0.3s ease;
         text-decoration: 3px line-through;
     }
@@ -691,10 +711,10 @@ font-style: italic;
         width: fit-content;
         margin: 0 auto;
         text-align: center;
-       /* font-family: "degular-mono", sans-serif;
+        /* font-family: "degular-mono", sans-serif;
         font-size: 24px;
         font-size: 15px;*/
-        
+
         font-family: "stefan", sans-serif;
         font-weight: 400;
         font-style: normal;
@@ -707,7 +727,6 @@ font-style: italic;
         background: #FBF719;
         padding: 0 10px;
     }
-
 </style>
 
 <body class="dashed-grid-paper">
@@ -724,123 +743,54 @@ font-style: italic;
     </nav>
 
     <div class="title-info">
-        <p list-title><span class="highlight">The Way Nature Works </span>
-            <br>
-            <span class="highlight-small">Look forward to the next season</span>
+        <p list-title><span class="highlight">I Design(...)</span>
+        <br>
+            <span class="highlight-small">Manifesto</span>
         </p>
-        <p list-date>Jun 22, 2026</p>
+        <p list-date>Aug 26, 2026</p>
     </div>
 
     <div class="linebar"></div>
 
-
     <div class="center-wrapper">
-        <p class="center-text" style="text-align: center; max-width: 800px;">
-            Nature’s self-sustained beauty can’t be explained in a laconic manner.
-            <br>
-            Night cuts day short, a lurid strife in broad daylight.
-            <br>
-            Night sits on earth, everything blue-lit, as it waits for a rematch.
-            <br>
-            As time passes by, the gallant night makes way for day to take its rightful place on the throne.
-            <br><br>
-            Like fallen soldiers, the sun rises.
-            <br>
-            The sun’s rays gift life and warmth to the earth.
-            <br>
-            The light allays the earth’s restfulness.
-            <br>
-            Such a wonderful and saccharine moment.
-            <br>
-            But, like in life, there are moments that spoil.
-            <br><br>
-            A storm comes uninvited.
-            <br>
-            The storm kibitzes during its own tragedy.
-            <br>
-            The chirpings of birds and the thunder form such a contrapuntal composition.
-            <br>
-            A cold, improvident, lyricism downpour of tears hits earth.
-            <br>
-            But, like all seasons, time is not on its side.
-            <br>
-            The sun attenuates the storm, and right away it absconds from the scene.
-            <br>
-            In its trail, it leaves a raffish mess.
-            <br>
-            The trees stand weary from its passing,
-            <br>
-            And the earth remembers where the rain once fell.
-            <br><br>
-            Like storms, seasons also occur.
-            <br>
-            Fall passes with its tears
-            <br>
-            And its repertoire of fiery-colored leaves.
-            <br>
-            Winter makes its way.
-            <br>
-            A sharp, coarse, cold wind blows.
-            <br>
-            The residue of rain freezes,
-            <br>
-            And soon the indolent snow falls slowly,
-            <br>
-            Forming a kind of gossamer.
-            <br><br>
-            The feeling of the inert winter soon wears off,
-            <br>
-            And then the depletion of the snow begins.
-            <br>
-            What falls are beautiful frozen puffs of depression.
-            <br>
-            The silence breaks the wind,
-            <br>
-            And the moon sets the mood.
-            <br>
-            A long day, a peaceful night;
-            <br>
-            Nature takes its rest from its misery.
-            <br><br>
-            Time passes; the cycle restarts.
-            <br>
-            The frozen earth begins to soften,
-            <br>
-            And the sleeping roots begin to stir.
-            <br><br>
-            The moon drifts away, and comes the gleaming light.
-            <br>
-            Nature awakens from its hibernation.
-            <br>
-            A new day glistens with opportunities.
-            <br>
-            Spring comes, then summer;
-            <br>
-            Nature is beautiful, albeit bipolar.
-            <br>
-            Nothing can compare to its rare touch,
-            <br>
-            A gentle touch that leaves a mark on the fertile soil.
-            <br>
-            The aroma of fresh life fills the air.
-            <br>
-            Flowers rise from the fertile soil,
-            <br>
-            Stretching toward the warmth they once lacked.
-            <br>
-            Spring is the prime season in which chances seem to be in hand.
-            <br>
-            What appeared lost now finds its place again.
-            <br><br>
-            This is the way nature works.
-        </p>
+        <div class="center-text" style="text-align: left; max-width: 800px;">
+            <div class="emphasis">
+                When writing this manifesto, I wanted something personable and fluid—something I can look back on and
+                still find relevant.
 
+                The manifesto's structure is designed to be revised over time, as suggested by the parentheses, adding new meanings
+                of what design means to me. With an ever-evolving world, ideas change, habits change, and ways of
+                approaching design will have to adapt. 
+            </div>
+            <br>
+            I design(…)
+            <br><br>
+            I design (with purpose). Without purpose, the creative drive can run dry. I begin with a goal in mind while
+            remaining open to all possibilities—failure or success—and expect the unexpected.
+            <br><br>
+            I design (to make a difference). Rather than focusing solely on aesthetics, I design to foster connection,
+            spark curiosity, and encourage change, hoping to make even the smallest difference.
+            <br><br>
+            I design (to create). I believe design can open opportunities for people to explore ideas, challenge
+            conventions, and see the world from new perspectives.
+            <br><br>
+            I design (because I have to). Design is intertwined with my existence; it runs through my veins. Ideas are
+            constantly circulating in my head, and while not every one comes to fruition, the act of designing gives
+            them a place to exist. If not now, then when?
+            <br><br>
+            I design (to remember). Every project carries a piece of me—a collection of my thoughts, experiences, and
+            being. Through design, I preserve those pieces and find a sense of peace in giving them form.
+            <br><br>
+            To design is to give purpose to ideas, create meaningful change, open new possibilities, express what must
+            be expressed, and preserve what should be remembered. Every idea has value, and design gives those ideas the
+            power to take shape and leave a mark. I design (because I can).
+        </div>
     </div>
     <br><br>
     <br><br>
     <br><br>
     <br><br>
-    <a href="index.html" class="before-page">Back to index <!-- &rarr; --></a>
+    <a href="Story1.html" class="before-page">Previous Page <!-- &rarr; --></a>
 
     <br><br>
 
